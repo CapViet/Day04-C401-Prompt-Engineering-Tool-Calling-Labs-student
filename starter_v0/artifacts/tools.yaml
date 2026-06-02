@@ -48,6 +48,16 @@ tools:
         max_results: {type: integer, default: 5, description: "Số kết quả"}
       required: [query]
 
+  - name: crawl
+    description: "Crawl nhiều trang của một website bắt đầu từ URL gốc. Dùng khi user muốn đọc toàn bộ site hoặc một section (vd: tất cả bài blog), không chỉ một trang đơn. Nếu chỉ cần một URL cụ thể, dùng fetch thay thế."
+    parameters:
+      type: object
+      properties:
+        url: {type: string, default: "", description: "URL gốc để bắt đầu crawl"}
+        limit: {type: integer, default: 5, description: "Số trang tối đa"}
+        max_chars_per_page: {type: integer, default: 2000, description: "Số ký tự tối đa mỗi trang"}
+      required: [url]
+
   - name: fetch
     description: "Lấy nội dung từ một địa chỉ."
     parameters:

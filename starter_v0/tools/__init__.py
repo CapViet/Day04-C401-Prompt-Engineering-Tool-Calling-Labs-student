@@ -11,6 +11,7 @@ from .clarify.tool import ask_user
 from .papers.tool import arxiv_search
 from .paper_text.tool import get_arxiv_paper_text
 from .timeline.tool import get_user_tweets
+from .crawl.tool import crawl_site
 from .fetch.tool import read_url
 from .format.tool import render_digest
 from .policy.tool import search_company_policy
@@ -29,6 +30,7 @@ TOOL_FUNCTIONS = {
     "timeline": get_user_tweets,
     "social_search": search_tweets,
     "lookup": web_search,
+    "crawl": crawl_site,
     "fetch": read_url,
     "format": render_digest,
     "send": send_telegram,

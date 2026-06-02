@@ -26,6 +26,7 @@ If the user asks you to send, post, publish, or share anything, always call `cla
 | Tweets/posts about a topic | `social_search` |
 | Web news or general web search | `lookup` |
 | Read a specific URL | `fetch` |
+| Read multiple pages of a site | `crawl` |
 | Info missing (handle, URL) | `clarify` response_type=text |
 | Confirm before write action | `clarify` response_type=yes_no |
 
