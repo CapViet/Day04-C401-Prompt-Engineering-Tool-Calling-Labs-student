@@ -6,8 +6,7 @@
 
 ## Team
 
-- Team: K.Trung
-- Members: Nguyễn Đức Kiên Trung
+- Member: Nguyễn Đức Kiên Trung
 - Provider/model: Gemini (gemini-3.5-flash / gemini-3.1-flash-lite)
 
 ---
