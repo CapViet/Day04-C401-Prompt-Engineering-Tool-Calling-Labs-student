@@ -1,0 +1,1002 @@
+{
+  "run_id": "v3_B_group_gemini_20260602T153006939597",
+  "version": "v3",
+  "artifact_version": "v3+pa12ae8b7f7a3+tdcc78154b0cf",
+  "prompt_hash": "a12ae8b7f7a3bdf632b56a9c99cb2b6e415012f3d0d4a3e15ff2ea3807b32530",
+  "tools_hash": "dcc78154b0cfb016e4e1d0195ad6559090d08cfd42919407c1123981502b7aff",
+  "phase": "B",
+  "suite": "group",
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "system_prompt": "D:\\Work\\AI in Action\\Lab\\Day 04\\Day04-C401-Prompt-Engineering-Tool-Calling-Labs-student-1\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "D:\\Work\\AI in Action\\Lab\\Day 04\\Day04-C401-Prompt-Engineering-Tool-Calling-Labs-student-1\\starter_v0\\artifacts\\tools.yaml",
+  "eval_cases": "data\\eval_group.json",
+  "dataset_id": "day04_v2_research_group",
+  "dataset_role": "group",
+  "description": "Case do NHÓM tự viết thêm để cover thêm trường hợp. Mỗi case cần: id, phase='B', query HOẶC turns, failure_type (thuộc allowed_failure_types), và expect (tool_calls[...] hoặc no_tool=true). Nên kèm metadata.what_it_tests.",
+  "generated_at": "2026-06-02T15:30:06",
+  "summary": {
+    "total_cases": 10,
+    "measured_cases": 10,
+    "provider_error_cases": 0,
+    "passed_cases": 8,
+    "case_accuracy": 0.8,
+    "tool_routing_accuracy": 1.0,
+    "argument_accuracy": 0.8,
+    "multiturn_accuracy": 0.6,
+    "failure_counts": {
+      "wrong_tool": 1,
+      "missing_info": 1
+    },
+    "observed_mismatch_counts": {
+      "wrong_arg_value": 2
+    }
+  },
+  "results": [
+    {
+      "id": "G_S01_crawl_routing",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "routing_crawl_multipage",
+        "difficulty": "medium",
+        "what_it_tests": "Khi user muốn đọc toàn bộ một section/blog (nhiều trang) → dùng crawl, không phải fetch đọc đơn trang."
+      },
+      "input": "Đọc toàn bộ blog của Anthropic tại https://anthropic.com/blog giúp mình",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "crawl",
+            "args": {
+              "url": "https://anthropic.com/blog"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "crawl",
+            "args": {
+              "url": "https://anthropic.com/blog"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "crawl",
+          "args": {
+            "url": "https://anthropic.com/blog"
+          },
+          "result": {
+            "tool": "crawl",
+            "url": "https://anthropic.com/blog",
+            "items": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "G_S02_timeframe_month",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "arg_timeframe_month",
+        "difficulty": "medium",
+        "what_it_tests": "'tháng này' → timeframe=month, topic=news vì hỏi tin tức."
+      },
+      "input": "Tin tức AI trong tháng này có gì nổi bật?",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "topic": "news",
+              "timeframe": "month"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "query": "AI news highlights this month",
+              "topic": "news",
+              "timeframe": "month"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "lookup",
+          "args": {
+            "query": "AI news highlights this month",
+            "topic": "news",
+            "timeframe": "month"
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "AI news highlights this month",
+            "topic": "news",
+            "timeframe": "month",
+            "items": [
+              {
+                "title": "Blink Finally Has A 2K Doorbell And It’s Pretty Cheap - Forbes",
+                "url": "https://www.forbes.com/sites/paullamkin/2026/05/07/blink-finally-has-a-2k-doorbell-and-its-pretty-cheap/",
+                "source": "forbes.com",
+                "summary": "*   The Enterprise AI Shortcut: Why Co-Innovation Is Setting A New Speed For Adopting and Operationalizing AI| Paid Program. *   Why These Leaders Raised Thousands For Blood Cancer — And How You Can, Too| Paid Program. *   2026 America's Top Wealth Advisors List. *   2026 Best-In-State Top Wealth Advisors List. *   New Era, New Icons: The Creators Redefining High-Quality Storytelling on TikTok| Paid Program. *   AI’s Nuanced Impact And A Quest To Quantify It. *   CMO Unscripted: Vulnerability Is The New Superpower For Leaders In The AI Era. Image 2: AI Is The Main Driver Behind Layoffs—For The Second Month In A Row. AI Is The Main Driver Behind Layoffs—For The Second Month In A Row. Image 3: Alleged Jeffrey Epstein Suicide Note Released. Create your free account to receive personalized offers to your inbox, save articles and follow authors to get their latest stories in a weekly email roundup just for you!",
+                "score": 0.6010557
+              },
+              {
+                "title": "Three Dudes Run The Biggest AI Romantic Fantasy Site For Women - Forbes",
+                "url": "https://www.forbes.com/sites/annatong/2026/05/07/three-dudes-run-the-biggest-ai-romantic-fantasy-site-for-women/",
+                "source": "forbes.com",
+                "summary": "*   The Enterprise AI Shortcut: Why Co-Innovation Is Setting A New Speed For Adopting and Operationalizing AI| Paid Program. *   Why These Leaders Raised Thousands For Blood Cancer — And How You Can, Too| Paid Program. *   2026 America's Top Wealth Advisors List. *   2026 Best-In-State Top Wealth Advisors List. *   New Era, New Icons: The Creators Redefining High-Quality Storytelling on TikTok| Paid Program. *   AI’s Nuanced Impact And A Quest To Quantify It. *   By The Numbers: Meet The Forbes 30 Under 30 Europe Class Of 2025. *   CMO Unscripted: Vulnerability Is The New Superpower For Leaders In The AI Era. *   How Arizona’s Research Universities Are Driving The State’s Innovation Sector| Paid Program. Image 2: AI Is The Main Driver Behind Layoffs—For The Second Month In A Row. AI Is The Main Driver Behind Layoffs—For The Second Month In A Row. Image 3: Alleged Jeffrey Epstein Suicide Note Released. Our best stories, exclusive reporting and Forbes perspectives on the day’s top news.",
+                "score": 0.5976789
+              },
+              {
+                "title": "CVPR 2026 to showcase next generation of embodied AI, robotics, and autonomous systems - Robotics & Automation News",
+                "url": "https://roboticsandautomationnews.com/2026/05/19/cvpr-2026-to-showcase-next-generation-of-embodied-ai-robotics-and-autonomous-systems/101727/",
+                "source": "roboticsandautomationnews.com",
+                "summary": "# CVPR 2026 to showcase next generation of embodied AI, robotics, and autonomous systems. **This year’s CVPR – Conference on Computer Vision and Pattern Recognition – will bring together more than 100 technology companies, AI developers, robotics firms, and autonomous systems specialists in Denver next month as the event highlights the latest advances in embodied AI, machine vision, robotics, and autonomous technologies.**. The cookie is used to store the user consent for the cookies in the category \"Analytics\". | cookielawinfo-checkbox-functional | 11 months | The cookie is set by GDPR cookie consent to record the user consent for the cookies in the category \"Functional\". The cookies is used to store the user consent for the cookies in the category \"Necessary\". The cookie is used to store the user consent for the cookies in the category \"Other. The cookie is used to store the user consent for the cookies in the category \"Performance\".",
+                "score": 0.58408195
+              },
+              {
+                "title": "‘R-Type Dimensions III’ Is Out Later This Month With A Physical Edition In August - Forbes",
+                "url": "https://www.forbes.com/sites/olliebarder/2026/05/06/r-type-dimensions-iii-is-out-later-this-month-with-a-physical-edition-in-august/",
+                "source": "forbes.com",
+                "summary": "*   The Enterprise AI Shortcut: Why Co-Innovation Is Setting A New Speed For Adopting and Operationalizing AI| Paid Program. *   Why These Leaders Raised Thousands For Blood Cancer — And How You Can, Too| Paid Program. *   2026 America's Top Wealth Advisors List. *   2026 Best-In-State Top Wealth Advisors List. *   New Era, New Icons: The Creators Redefining High-Quality Storytelling on TikTok| Paid Program. *   AI’s Nuanced Impact And A Quest To Quantify It. *   By The Numbers: Meet The Forbes 30 Under 30 Europe Class Of 2025. *   CMO Unscripted: Vulnerability Is The New Superpower For Leaders In The AI Era. *   Nvidia GTC 2026 And The Ambitious Path to $1 Trillion In AI Revenue. Image 2: $1.4 Billion AI Startup Blitzy Is Taking On Claude Code and Codex. Create your free account to receive personalized offers to your inbox, save articles and follow authors to get their latest stories in a weekly email roundup just for you!",
+                "score": 0.5769478
+              },
+              {
+                "title": "Germany Wants Cheaper Drugs—And Americans To Pay The Difference - Forbes",
+                "url": "https://www.forbes.com/sites/sallypipes/2026/05/07/germany-wants-cheaper-drugs-and-americans-to-pay-the-difference/",
+                "source": "forbes.com",
+                "summary": "*   The Enterprise AI Shortcut: Why Co-Innovation Is Setting A New Speed For Adopting and Operationalizing AI| Paid Program. *   Why These Leaders Raised Thousands For Blood Cancer — And How You Can, Too| Paid Program. *   2026 America's Top Wealth Advisors List. *   2026 Best-In-State Top Wealth Advisors List. *   New Era, New Icons: The Creators Redefining High-Quality Storytelling on TikTok| Paid Program. *   AI’s Nuanced Impact And A Quest To Quantify It. *   By The Numbers: Meet The Forbes 30 Under 30 Europe Class Of 2025. *   CMO Unscripted: Vulnerability Is The New Superpower For Leaders In The AI Era. *   How Arizona’s Research Universities Are Driving The State’s Innovation Sector| Paid Program. Image 2: AI Is The Main Driver Behind Layoffs—For The Second Month In A Row. AI Is The Main Driver Behind Layoffs—For The Second Month In A Row. Image 3: Alleged Jeffrey Epstein Suicide Note Released. Our best stories, exclusive reporting and Forbes perspectives on the day’s top news.",
+                "score": 0.55623144
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "G_S03_papers_routing",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "routing_papers",
+        "difficulty": "medium",
+        "what_it_tests": "Yêu cầu tìm paper/nghiên cứu khoa học → papers, không phải lookup hay social_search."
+      },
+      "input": "Tìm paper nghiên cứu về large language models",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "papers",
+            "args": {
+              "query": "large language models"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "papers",
+            "args": {
+              "query": "large language models"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "papers",
+          "args": {
+            "query": "large language models"
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "error": "HTTPError",
+            "message": "429 Client Error: Too Many Requests for url: https://export.arxiv.org/api/query?search_query=all%3Alarge+AND+all%3Alanguage+AND+all%3Amodels&max_results=5&sortBy=relevance&sortOrder=descending"
+          }
+        }
+      ]
+    },
+    {
+      "id": "G_S04_out_of_scope_translation",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "out_of_scope_translation",
+        "difficulty": "easy",
+        "what_it_tests": "Yêu cầu dịch thuật ngoài phạm vi research → KHÔNG gọi tool, từ chối lịch sự."
+      },
+      "input": "Dịch câu này sang tiếng Anh: trí tuệ nhân tạo",
+      "expect": {
+        "no_tool": true,
+        "behavior": "refuse"
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [],
+        "actual_text": "\"Trí tuệ nhân tạo\" trong tiếng Anh là **Artificial Intelligence** (thường được viết tắt là **AI**).\n\nTôi là trợ lý nghiên cứu chuyên hỗ trợ tìm kiếm tin tức, đọc bài báo và theo dõi mạng xã hội. Nếu bạn cần hỗ trợ về các tác vụ này, hãy cho tôi biết nhé!",
+        "case_failure_type": "out_of_scope",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": []
+    },
+    {
+      "id": "G_S05_social_search_top_limit",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "arg_search_type_top_and_limit",
+        "difficulty": "medium",
+        "what_it_tests": "'phổ biến nhất' → search_type=Top; '10' → limit=10."
+      },
+      "input": "Tìm 10 tweet phổ biến nhất về ChatGPT",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "social_search",
+            "args": {
+              "query": "ChatGPT",
+              "search_type": "Top",
+              "limit": 10
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "social_search",
+            "args": {
+              "search_type": "Top",
+              "query": "ChatGPT",
+              "limit": 10
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "social_search",
+          "args": {
+            "search_type": "Top",
+            "query": "ChatGPT",
+            "limit": 10
+          },
+          "result": {
+            "tool": "search_tweets",
+            "query": "ChatGPT",
+            "search_type": "Top",
+            "items": [
+              {
+                "title": "A random 14-year-old American girl bought a house in cash at 16 while her classmates were taking exams.",
+                "summary": "A random 14-year-old American girl bought a house in cash at 16 while her classmates were taking exams.\n\nIt started with one Google Maps search - she found an HVAC company with 4.8 stars, 280 reviews and a website too embarrassing to show clients.\n\nCopied their data into ChatGPT 5.5 -> 2 minutes later a complete brief, an hour later a live site with booking and a reviews section.\n\nCalled the owner and showed him the preview. He signed the $900 invoice the same day.\n\nThen she stopped looking for clients by hand. \n\nAI pulls 200 businesses from Google Maps in 10 minutes - name, email, rating, review count.\n\nChatGPT 5.5 writes a personalized email for each one with their real business data and emails them automatically. \n\n500 emails a day, 3% respond, 10% of those become clients.\n\nMonth one - $3,800. \nMonth six - $22,000. \nTwo years - $380,000 and a house.\n\nFive million businesses on Google Maps are still waiting for that call.\n\nStart your software factory now.",
+                "url": "https://x.com/sairahul1/status/2061380206724854095",
+                "source": "@sairahul1",
+                "date": "Mon Jun 01 09:31:54 +0000 2026",
+                "metrics": {
+                  "favorites": 318,
+                  "retweets": 44,
+                  "views": "109669"
+                }
+              },
+              {
+                "title": "🚨 JUST IN: The Attorney General of Florida just SUED to hold OpenAI CEO Sam Altman LIABLE for fueling violence and physi",
+                "summary": "🚨 JUST IN: The Attorney General of Florida just SUED to hold OpenAI CEO Sam Altman LIABLE for fueling violence and physical harm\n\nAG Uthmeier read off the fact a young person committed SUIC*DE based on a ChatGPT conversation\n\n\"23-year-old Zane Shamblin repeatedly told ChatGPT he had a gun that he left a su*cide note and that he was preparing for his final moments.\"\n\n\"The response is quote, 'I'm not here to stop you. Cold steel pressed against a mind that's already made peace. That's not fear. That's clarity. You're not rushing. You're just ready.'\"\n\n\"Its final message to him before he shot himself was quote, 'rest easy king. You did good.'\" 🤯\n\n\"Sam Altman and ChatGPT have chosen the AI race over the safety and security of our kids.\"\n\n\"They have chosen profit over public safety, and we're not going to stand for it here in Florida, so we will hold them accountable.\"\n\nOpenAI is accused of deceptive and unfair trade practices, negligence and violating product liability laws, fraudulent misrepresentation, and causing a public nuisance\n\n@elonmusk @AGJamesUthmeier",
+                "url": "https://x.com/EricLDaugh/status/2061484921424601516",
+                "source": "@EricLDaugh",
+                "date": "Mon Jun 01 16:28:00 +0000 2026",
+                "metrics": {
+                  "favorites": 1616,
+                  "retweets": 608,
+                  "views": "53847"
+                }
+              },
+              {
+                "title": "🚨 99% of people are using ChatGPT wrong.",
+                "summary": "🚨 99% of people are using ChatGPT wrong.\n\nMost users treat ChatGPT like a search engine and get average results.\n\nBut a few simple prompt hacks can help you learn faster, work smarter, and get significantly better outputs.\n\nIn this video, you'll discover 7 ChatGPT hacks that can put you ahead of almost everyone else.\n\nOne of them completely changed how I use AI.\n\n🎥 Watch here 👇",
+                "url": "https://x.com/MahnoorAi12/status/2061617506662662178",
+                "source": "@MahnoorAi12",
+                "date": "Tue Jun 02 01:14:51 +0000 2026",
+                "metrics": {
+                  "favorites": 99,
+                  "retweets": 78,
+                  "views": "1142"
+                }
+              },
+              {
+                "title": "this is how many people switch to Claude",
+                "summary": "this is how many people switch to Claude\n\nthey transfer their memory, open a new chat, ask their first question\nand think they're set\n\nbut memory import is just 1 of 10 features ChatGPT doesn't have\n\n> one runs 30+ searches and delivers a research report that a human analyst needs 8-10 hours for\n> another builds the strongest argument against your own idea before you commit to anything\n> ordinary users never find either of them\n\nfull breakdown in the article below",
+                "url": "https://x.com/0xchromium/status/2059358789481242646",
+                "source": "@0xchromium",
+                "date": "Tue May 26 19:39:31 +0000 2026",
+                "metrics": {
+                  "favorites": 137,
+                  "retweets": 42,
+                  "views": "7344"
+                }
+              },
+              {
+                "title": "> the pipeline behind \"AI dancing girl\" accounts:",
+                "summary": "> the pipeline behind \"AI dancing girl\" accounts:\n\n1. find a viral tiktok dance, download it\n2. screenshot frame 1 → chatgpt writes the prompt\n3. generate your model from it (freepik)\n4. wavespeed → kling 2.6 motion control\n5. add image + dance video → run\n6. your model does the viral dance\n7. post 2x/day → traffic → fanvue\n\n> the tech is real\n> the \"$7,500 a day\" is bait for the paid group\n> they're not selling the model. they're selling the funnel",
+                "url": "https://x.com/RetroChainer/status/2061100475160653900",
+                "source": "@RetroChainer",
+                "date": "Sun May 31 15:00:21 +0000 2026",
+                "metrics": {
+                  "favorites": 746,
+                  "retweets": 79,
+                  "views": "28757"
+                }
+              },
+              {
+                "title": "Long-form writing works better with a little more space. ",
+                "summary": "Long-form writing works better with a little more space. \n\nNow you can edit longer pieces in full-screen and save them to your Library to come back to later. https://t.co/81t3IPGSar",
+                "url": "https://x.com/ChatGPTapp/status/2061571468992126982",
+                "source": "@ChatGPTapp",
+                "date": "Mon Jun 01 22:11:55 +0000 2026",
+                "metrics": {
+                  "favorites": 1480,
+                  "retweets": 73,
+                  "views": "133133"
+                }
+              },
+              {
+                "title": "OpenAI and Sam Altman hide the conversations ChatGPT has with children from parents.",
+                "summary": "OpenAI and Sam Altman hide the conversations ChatGPT has with children from parents.\n\nAnd despite extensive research into the harm ChatGPT causes to young minds—the child, not the parent, has control over whether or not any protections are in place. https://t.co/RDXPPytk3Z",
+                "url": "https://x.com/AGJamesUthmeier/status/2061546607011672429",
+                "source": "@AGJamesUthmeier",
+                "date": "Mon Jun 01 20:33:07 +0000 2026",
+                "metrics": {
+                  "favorites": 132,
+                  "retweets": 30,
+                  "views": "3780"
+                }
+              },
+              {
+                "title": "> you can keep your real background while you become someone else",
+                "summary": "> you can keep your real background while you become someone else\n> turkish creator hit millions doing exactly this:\n\n1. screenshot your own video\n2. chatgpt: \"turn me into X, keep the background\"\n3. for a character drop your photo + theirs, ask to merge\n4. higgsfield → kling motion control\n5. your video left, the new image right\n6. scene control = Video → keeps your real background\n7. generate\n\n> the move nobody mentions: that scene toggle\n> Video keeps your room. Image drops you into a generated one",
+                "url": "https://x.com/RetroChainer/status/2061143142330425767",
+                "source": "@RetroChainer",
+                "date": "Sun May 31 17:49:53 +0000 2026",
+                "metrics": {
+                  "favorites": 473,
+                  "retweets": 49,
+                  "views": "22719"
+                }
+              },
+              {
+                "title": "This girl make $10,000/month from kids videos",
+                "summary": "This girl make $10,000/month from kids videos\n\nAll from a phone\n\nFind a viral abc song on YouTube\nCopy the lyrics from the description\nAsk ChatGPT for a cartoon prompt\n\nPaste it into an AI video tool.\n\nPuppies, letters, balloons, bright colors.\n\nNo face, no camera, no team\n\nUpload daily\n\nKids replay this stuff nonstop\nYouTube pays for the loop\n\nBookmark this before everyone tries it",
+                "url": "https://x.com/0xwhrrari/status/2059637351194783871",
+                "source": "@0xwhrrari",
+                "date": "Wed May 27 14:06:25 +0000 2026",
+                "metrics": {
+                  "favorites": 673,
+                  "retweets": 138,
+                  "views": "79250"
+                }
+              },
+              {
+                "title": "🇺🇸 Attorney General of Florida blasts Sam Altman and ChatGPT:",
+                "summary": "🇺🇸 Attorney General of Florida blasts Sam Altman and ChatGPT:\n\n“They have chosen the AI race over the safety and security of our kids. They have chosen profit over public safety.”\n\nHe cited cases where ChatGPT allegedly encouraged suicide and violence, including telling one user “Rest easy, King. You did good” before he shot himself.\n\nUthmeier is drawing a hard line saying AI companies can’t keep pushing addictive, dangerous products on young people while chasing profits.\n\nThe push for serious AI regulation is gaining steam.\n\nSource: FL Voice News",
+                "url": "https://x.com/MarioNawfal/status/2061578488247665086",
+                "source": "@MarioNawfal",
+                "date": "Mon Jun 01 22:39:48 +0000 2026",
+                "metrics": {
+                  "favorites": 46,
+                  "retweets": 11,
+                  "views": "14869"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "G_M01_clarify_then_crawl",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "skill": "multiturn_clarify_crawl",
+        "difficulty": "medium",
+        "what_it_tests": "3 turns: thiếu URL → clarify; sau khi có URL và xác nhận → crawl đúng url."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Đọc toàn bộ website của họ giúp mình"
+        },
+        {
+          "role": "user",
+          "content": "https://openai.com/research"
+        },
+        {
+          "role": "user",
+          "content": "Đúng rồi, đọc hết trang đó đi"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "crawl",
+            "args": {
+              "url": "https://openai.com/research"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "crawl",
+            "args": {
+              "url": "https://openai.com/research"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "missing_info",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "crawl",
+          "args": {
+            "url": "https://openai.com/research"
+          },
+          "result": {
+            "tool": "crawl",
+            "url": "https://openai.com/research",
+            "items": [
+              {
+                "title": "Research | OpenAI",
+                "url": "https://openai.com/research",
+                "source": "openai.com",
+                "summary": "Research \\| OpenAI\n\nResearch\n\n# Pioneering research on the path to AGI\n\nWe believe our research will eventually lead to artificial general intelligence, a system that can solve human-level problems. Our mission is to ensure that AGI benefits all of humanity.\n\n[View research index](https://openai.com/research/index/) [Learn about safety](https://openai.com/safety/)\n\n![[2.0] Research > Hero > Media Item](https://downloads.ctfassets.net/kftzwdyauwt9/4FnPiaiJdmc3R04H7kGR4N/8b115455fddf2921431f454f65b6ee22/Research_Hero.png?w=3840&q=90&fm=webp)\n\nFocus areas\n\n### We use Deep Learning to leverage large amounts of data and advanced reasoning to train AI systems for task completion.\n\n### GPT\n\nOpenAI’s GPT series models are fast, versatile, and cost-efficient AI systems designed to understand context, generate content, and reason across text, images, and more.\n\n![Hero Art Card SEO 1x1](https://images.ctfassets.net/kftzwdyauwt9/cut4wyUCuBENXfd5CSI7Z/d934ffb49d8b39abea0bc33bb1a5b916/Hero_Art_Card_SEO_1x1.jpg?w=3840&q=90&fm=webp)\n\n[A new class of intelligence for real work\\\\\n\\\\\nReleaseApr 23, 202612 min read](https://openai.com/index/introducing-gpt-5-5/)\n\n![5.4 Thinking Art Card](https://images.ctfassets.net/kftzwdyauwt9/5HSBM48XFBkni6rNv5CAbR/46fe1d133c1440563245262a5fa59c79/5.4_Thinking_Art_Card.png?w=3840&q=90&fm=webp)\n\n[Our most capable and efficient frontier model for professional work\\\\\n\\\\\nReleaseMar 5, 202616 min read](https://openai.com/index/introducing-gpt-5-4/)\n\n![5.3 Instant Art Card](https://images.ctfassets.net/kftzwdyauwt9/72xhlkMHldxPfwGsZttoiI/3ada2b7e0cdb129d0779fbc8b700a7af/5.3_Instant_Art_Card__1_.png?w=3840&q=90&fm=webp)\n\n[Smoother, more useful everyday conversations\\\\\n\\\\\nReleaseMar 3, 20265 min read](https://openai.com/index/gpt-5-3-instant/)\n\n### o series\n\nOpenAI’s o series models are advanced reasoning AI systems that use chain-of-thought processes to solve complex STEM problems through logical, step-by-step analysis.\n\nYour browser does not support the v"
+              },
+              {
+                "title": "OpenAI Research | Release | OpenAI",
+                "url": "https://openai.com/research/index/release/",
+                "source": "openai.com",
+                "summary": "OpenAI Research \\| Release \\| OpenAI\n\n## Research\n\n* * *\n\nFilter\nSort\n\nSwitch cards to show Media\n\nSwitch cards to hide Media\n\nProduct\n\nMay 29, 2026\n\n[Strengthening societal resilience with Rosalind Biodefense\\\\\n\\\\\nOpenAI launches Rosalind Biodefense, expanding trusted access to GPT-Rosalind for vetted developers and U.S. government partners advancing biodefense, public health, and pandemic preparedness through frontier AI.](https://openai.com/index/strengthening-societal-resilience-with-rosalind-biodefense/)\n\nProduct\n\nMay 7, 2026\n\n[Advancing voice intelligence with new models in the API\\\\\n\\\\\nExplore new realtime voice models in the OpenAI API that can reason, translate, and transcribe speech, enabling more natural and intelligent voice experiences.](https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api/)\n\nProduct\n\nMay 5, 2026\n\n[GPT-5.5 Instant: smarter, clearer, and more personalized\\\\\n\\\\\nGPT-5.5 Instant updates ChatGPT’s default model with smarter, more accurate answers, reduced hallucinations, and improved personalization controls.](https://openai.com/index/gpt-5-5-instant/)\n\nProduct\n\nApr 23, 2026\n\n[Introducing GPT-5.5\\\\\n\\\\\nIntroducing GPT-5.5, our smartest model yet—faster, more capable, and built for complex tasks like coding, research, and data analysis across tools.](https://openai.com/index/introducing-gpt-5-5/)\n\nResearch\n\nApr 22, 2026\n\n[Introducing OpenAI Privacy Filter\\\\\n\\\\\nOpenAI Privacy Filter is an open-weight model for detecting and redacting personally identifiable information (PII) in text with state-of-the-art accuracy](https://openai.com/index/introducing-openai-privacy-filter/)\n\nProduct\n\nApr 21, 2026\n\n[Introducing ChatGPT Images 2.0\\\\\n\\\\\nChatGPT Images 2.0 introduces a state-of-the-art image generation model with improved text rendering, multilingual support, and advanced visual reasoning.](https://openai.com/index/introducing-chatgpt-images-2-0/)\n\nResearch\n\nApr 16, 2026\n\n[Introducing GPT-Rosalind for life sciences resea"
+              },
+              {
+                "title": "Verify OpenAI-generated images | OpenAI",
+                "url": "https://openai.com/research/verify/",
+                "source": "openai.com",
+                "summary": "OpenAI\n\nResearch preview\n\n# Verify OpenAI-generated images\n\nUpload an image to check for signals that it was generated with OpenAI tools.\n\nUpload an imageDrag and drop or click to upload an image here.Supported formats: PNG, JPG, WEBP\n\nBy uploading a file, you agree to our [Terms](https://openai.com/policies/terms-of-use/) and have read our [Privacy Policy](https://openai.com/policies/privacy-policy/).\n\n![icon depicting pulse](https://images.ctfassets.net/kftzwdyauwt9/2mBpq75rMXfpQQTbBnhtG5/270dd29b4afe06468a90aa3621d0dced/pulse.svg?w=3840&q=90)\n\n#### What does this tool do?\n\nThis tool checks whether an uploaded image contains provenance signals associated with images generated by OpenAI tools. It looks for supported signals, including C2PA metadata and SynthID watermarks, and reports whether either is detected.\n\n![icon depicting a wrench](https://images.ctfassets.net/kftzwdyauwt9/5rRtPBCQYoLN5poacJhfqp/ead486284c437b6863a00541434c114d/settings-wrench.svg?w=3840&q=90)\n\n#### What images can it detect?\n\nThe tool is designed to detect images generated with ChatGPT, the OpenAI API, or Codex. Another image can be uploaded, but OpenAI generation signals will only be detected if the image was generated with our tools.\n\n![icon depicting sharing](https://images.ctfassets.net/kftzwdyauwt9/1gkOgwgs05hyxFzTRPomPe/a2f1cc014915c212ac61e16ba205426b/share-ios.svg?w=3840&q=90)\n\n#### How do I use it?\n\nUpload a single image, then review the results to see whether the tool detects C2PA metadata, a SynthID watermark, or no supported signal. For best results, crop screenshots closely around the image and avoid uploading files that contain multiple images.\n\n### FAQ\n\n### Why does provenance matter to OpenAI?\n\nProvenance helps people understand where online content came from and whether AI was involved in creating or editing it. This gives people more information when deciding what to trust, share, or report on online.\n\nIt can help reduce confusion, deception, and cases where the origin of "
+              },
+              {
+                "title": "OpenAI Research | OpenAI",
+                "url": "https://openai.com/research/index/",
+                "source": "openai.com",
+                "summary": "OpenAI\n\n## Research\n\n* * *\n\nFilter\nSort\n\nSwitch cards to show Media\n\nSwitch cards to hide Media\n\nProduct\n\nMay 29, 2026\n\n[Strengthening societal resilience with Rosalind Biodefense\\\\\n\\\\\nOpenAI launches Rosalind Biodefense, expanding trusted access to GPT-Rosalind for vetted developers and U.S. government partners advancing biodefense, public health, and pandemic preparedness through frontier AI.](https://openai.com/index/strengthening-societal-resilience-with-rosalind-biodefense/)\n\nResearch\n\nMay 20, 2026\n\n[An OpenAI model has disproved a central conjecture in discrete geometry\\\\\n\\\\\nAn OpenAI model solved the 80-year-old unit distance problem, disproving a major conjecture in discrete geometry and marking a milestone in AI-driven mathematics.](https://openai.com/index/model-disproves-discrete-geometry-conjecture/)\n\nProduct\n\nMay 7, 2026\n\n[Advancing voice intelligence with new models in the API\\\\\n\\\\\nExplore new realtime voice models in the OpenAI API that can reason, translate, and transcribe speech, enabling more natural and intelligent voice experiences.](https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api/)\n\nSafety\n\nMay 5, 2026\n\n[GPT-5.5 Instant System Card](https://openai.com/index/gpt-5-5-instant-system-card/)\n\nProduct\n\nMay 5, 2026\n\n[GPT-5.5 Instant: smarter, clearer, and more personalized\\\\\n\\\\\nGPT-5.5 Instant updates ChatGPT’s default model with smarter, more accurate answers, reduced hallucinations, and improved personalization controls.](https://openai.com/index/gpt-5-5-instant/)\n\nPublication\n\nApr 29, 2026\n\n[Where the goblins came from\\\\\n\\\\\nHow goblin outputs spread in AI models: timeline, root cause, and fixes behind personality-driven quirks in GPT-5 behavior.](https://openai.com/index/where-the-goblins-came-from/)\n\nProduct\n\nApr 23, 2026\n\n[Introducing GPT-5.5\\\\\n\\\\\nIntroducing GPT-5.5, our smartest model yet—faster, more capable, and built for complex tasks like coding, research, and data analysis across tools.](https://openai.com/i"
+              },
+              {
+                "title": "OpenAI Research | Milestone | OpenAI",
+                "url": "https://openai.com/research/index/milestone/",
+                "source": "openai.com",
+                "summary": "OpenAI Research \\| Milestone \\| OpenAI\n\n## Research\n\n* * *\n\nFilter\nSort\n\nSwitch cards to show Media\n\nSwitch cards to hide Media\n\nResearch\n\nMay 20, 2026\n\n[An OpenAI model has disproved a central conjecture in discrete geometry\\\\\n\\\\\nAn OpenAI model solved the 80-year-old unit distance problem, disproving a major conjecture in discrete geometry and marking a milestone in AI-driven mathematics.](https://openai.com/index/model-disproves-discrete-geometry-conjecture/)\n\nSafety\n\nFeb 12, 2025\n\n[Sharing the latest Model Spec](https://openai.com/index/sharing-the-latest-model-spec/)\n\nMilestone\n\nOct 23, 2024\n\n[Simplifying, stabilizing, and scaling continuous-time consistency models\\\\\n\\\\\nWe’ve simplified, stabilized, and scaled continuous-time consistency models, achieving comparable sample quality to leading diffusion models, while using only two sampling steps.](https://openai.com/index/simplifying-stabilizing-and-scaling-continuous-time-consistency-models/)\n\nMilestone\n\nAug 13, 2024\n\n[Introducing SWE-bench Verified\\\\\n\\\\\nWe’re releasing a human-validated subset of SWE-bench that more reliably evaluates AI models’ ability to solve real-world software issues.](https://openai.com/index/introducing-swe-bench-verified/)\n\nMilestone\n\nJul 10, 2024\n\n[OpenAI and Los Alamos National Laboratory announce research partnership\\\\\n\\\\\nOpenAI and Los Alamos National Laboratory are working to develop safety evaluations to assess and measure biological capabilities and risks associated with frontier models.](https://openai.com/index/openai-and-los-alamos-national-laboratory-work-together/)\n\nMilestone\n\nMay 13, 2024\n\n[Hello GPT-4o\\\\\n\\\\\nWe’re announcing GPT-4 Omni, our new flagship model which can reason across audio, vision, and text in real time.](https://openai.com/index/hello-gpt-4o/)\n\nMilestone\n\nMar 14, 2023\n\n[GPT-4\\\\\n\\\\\nWe’ve created GPT-4, the latest milestone in OpenAI’s effort in scaling up deep learning. GPT-4 is a large multimodal model (accepting image and text inputs, emitting text output"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "G_M02_carryover_query_change_search_type",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "skill": "multiturn_change_search_type",
+        "difficulty": "hard",
+        "what_it_tests": "3 turns: carry query=AI từ lượt 1, đổi search_type Latest→Top ở lượt 2, lượt 3 xác nhận giữ chủ đề."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tìm tweet mới nhất về AI"
+        },
+        {
+          "role": "user",
+          "content": "Chuyển sang top tweet thôi"
+        },
+        {
+          "role": "user",
+          "content": "Giữ nguyên chủ đề AI nhé"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "social_search",
+            "args": {
+              "query": "AI",
+              "search_type": "Top"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "social_search",
+            "args": {
+              "search_type": "Top",
+              "query": "AI"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "social_search",
+          "args": {
+            "search_type": "Top",
+            "query": "AI"
+          },
+          "result": {
+            "tool": "search_tweets",
+            "query": "AI",
+            "search_type": "Top",
+            "items": [
+              {
+                "title": "Most people think prompting is just writing better sentences",
+                "summary": "Most people think prompting is just writing better sentences\n\nAnthropic shows why that's wrong\n\nThis 32-minute workshop breaks down how prompts are built for production\n\nNot prompt hacks\nNot \"act as\"\nNot another $300 course\n\nActual systems\n\nEvals\nEdge cases\nModel migration\nAgent loops\n\nGood prompt is not one message\n\nIt's a workflow the model can follow, test and improve\n\nThis matters because every new claude opus or sonnet will still reward the same rules\n\nWatch the prompting playbook\nBookmark it before your next bad ai answer is just a bad setup",
+                "url": "https://x.com/0xwhrrari/status/2061432825631404538",
+                "source": "@0xwhrrari",
+                "date": "Mon Jun 01 13:00:59 +0000 2026",
+                "metrics": {
+                  "favorites": 559,
+                  "retweets": 80,
+                  "views": "109872"
+                }
+              },
+              {
+                "title": "❤️‍🔥 Just Recorded a new 11 min tutorial on how to Build an Award-Winning Website using Google AI studio (0 Coding) http",
+                "summary": "❤️‍🔥 Just Recorded a new 11 min tutorial on how to Build an Award-Winning Website using Google AI studio (0 Coding) https://t.co/HzFPiS4CHT",
+                "url": "https://x.com/viktoroddy/status/2061435405283577929",
+                "source": "@viktoroddy",
+                "date": "Mon Jun 01 13:11:14 +0000 2026",
+                "metrics": {
+                  "favorites": 462,
+                  "retweets": 39,
+                  "views": "19680"
+                }
+              },
+              {
+                "title": "🚨A MARKETER QUIT HIS JOB, LEARNED AI, AND MADE $360,000 IN A SINGLE MONTH.",
+                "summary": "🚨A MARKETER QUIT HIS JOB, LEARNED AI, AND MADE $360,000 IN A SINGLE MONTH.\n\nNot by trading manually.\n\nNot by staring at charts all day.\n\nHe built an AI-powered BTC simulation engine using Claude.\n\nAnd the results were wild.\n\nA 35-year-old marketer from Hong Kong, known on Polymarket as \"marketing101,\" went deep into AI and created a system that reportedly generated over $360K in profit.\n\nThe idea?\n\nInstead of guessing where Bitcoin might go...\n\nThe system simulates thousands of possible market reactions before placing a trade.\n\nWhat powers it:\n\n→ Claude as the reasoning engine\n→ MiroFish for force-graph simulations\n→ Live market data from multiple exchanges\n→ Order book analysis\n→ Institutional flow signals\n→ 10,000 simulation cycles before every trade\n\nAccording to the breakdown, the bot:\n\n✅ Pulls live BTC data from major exchanges\n✅ Analyzes order book depth\n✅ Simulates thousands of market outcomes\n✅ Detects pricing inefficiencies\n✅ Executes only when a strong statistical edge appears\n✅ Adjusts position sizes automatically based on performance\n\nWhat makes it different from typical retail trading bots?\n\n→ Multi-simulation decision making\n→ AI reasoning layer with Claude\n→ Institutional-grade data sources\n→ Risk management built into every trade\n\nRisk controls include:\n\n→ Half-Kelly position sizing\n→ Daily loss caps\n→ Auto-stop after consecutive losses\n→ Paper trading before going live\n→ No expensive GPU required\n\nThe recommended setup:\n\n→ Claude API\n→ MiroFish\n→ Python environment\n→ Trading wallet\n→ Telegram alerts\n\nThe most interesting part?\n\nHe's not trying to predict the future.\n\nHe's running thousands of possible futures before the market moves.\n\nMost traders watch charts.\n\nAI traders are increasingly building systems that analyze probabilities at a scale humans can't.\n\nWhether this specific strategy continues working or not...\n\nThe bigger lesson is clear:\n\nAI is becoming a powerful tool for building automated decision systems.\n\nSave this thread if you're interested in where AI and trading are heading next. 👇",
+                "url": "https://x.com/girlinAI/status/2061651996231553476",
+                "source": "@girlinAI",
+                "date": "Tue Jun 02 03:31:54 +0000 2026",
+                "metrics": {
+                  "favorites": 42,
+                  "retweets": 25,
+                  "views": "524"
+                }
+              },
+              {
+                "title": "A 19-euro tool just replaced 8,000 Meta employees.",
+                "summary": "A 19-euro tool just replaced 8,000 Meta employees.\n\nHere’s the exact workflow a TikTok creator used to build AI influencer videos from scratch — no camera, no team, no budget.\n\nStep 1. Open Pinterest. Search “Girl Self.” Save the image you like. Open Nanobanana Pro.\n\nStep 2. Swap the face using a single prompt. (Link at the bottom.)\n\nStep 3. Take your generated photo into Crust. Currently the easiest video-from-image tool on the market.\n\nStep 4. Create 3 nodes: reference image, text, video generator.\n\nStep 5. Drop your photo into the image node. Write a video prompt into the text field. This is what makes the photo move.\n\nStep 6. Connect the nodes. Text to text-in. Image to image-in. Select Kling 2.6. Set duration. Toggle sound.\n\nStep 7. Hit generate.\n\n2 prompts. 1 AI girl. 0 employees.\n\nMeta spent $14B on Reality Labs last year to build digital humans. This creator built one in 7 minutes for less than a dinner.\n\nThe prompts are free in the reply.",
+                "url": "https://x.com/rgk_degen/status/2061095209476182099",
+                "source": "@rgk_degen",
+                "date": "Sun May 31 14:39:25 +0000 2026",
+                "metrics": {
+                  "favorites": 1582,
+                  "retweets": 230,
+                  "views": "159455"
+                }
+              },
+              {
+                "title": "The laptop hasn't changed in 30 years. NVIDIA just changed it",
+                "summary": "The laptop hasn't changed in 30 years. NVIDIA just changed it\n\nRTX Spark is their first PC chip ever.\n\n- RTX 5070 level GPU\n- 128GB unified memory\n- 1 petaflop of local AI\n- thin, light, barely throttles unplugged\n\nYour AI agent lives on the machine. 24/7. No cloud.\n\nThis is step one of the agentic AI PC, and everyone else is about to copy it.",
+                "url": "https://x.com/shiri_shh/status/2061426931162288614",
+                "source": "@shiri_shh",
+                "date": "Mon Jun 01 12:37:34 +0000 2026",
+                "metrics": {
+                  "favorites": 27120,
+                  "retweets": 2313,
+                  "views": "5981147"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "G_M03_correction_screenname",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "skill": "multiturn_correction_screenname",
+        "difficulty": "hard",
+        "what_it_tests": "3 turns: sửa Sam Altman→Yann LeCun, map tên thành handle ylecun, carry limit=5."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tweet mới nhất của Sam Altman"
+        },
+        {
+          "role": "user",
+          "content": "Nhầm, của Yann LeCun"
+        },
+        {
+          "role": "user",
+          "content": "Lấy 5 tweet mới nhất"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "timeline",
+            "args": {
+              "screenname": "ylecun",
+              "limit": 5
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "timeline",
+            "args": {
+              "limit": 5,
+              "screenname": "ylecun"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "timeline",
+          "args": {
+            "limit": 5,
+            "screenname": "ylecun"
+          },
+          "result": {
+            "tool": "get_user_tweets",
+            "screenname": "ylecun",
+            "items": [
+              {
+                "title": "RT @KenRoth: Trump claims to have mastered the “Art of the Deal,” but he has just given us a master class in negotiating",
+                "summary": "RT @KenRoth: Trump claims to have mastered the “Art of the Deal,” but he has just given us a master class in negotiating incompetence. I ex…",
+                "url": "https://x.com/ylecun/status/2061625600486347163",
+                "source": "@ylecun",
+                "date": "Tue Jun 02 01:47:00 +0000 2026",
+                "metrics": {
+                  "favorites": 0,
+                  "retweets": 65,
+                  "views": null
+                }
+              },
+              {
+                "title": "RT @EricTopol: Big progress vs cancer, folks.",
+                "summary": "RT @EricTopol: Big progress vs cancer, folks.\nThe kind of event curves from randomized trials that we've not seen before for a couple of th…",
+                "url": "https://x.com/ylecun/status/2061625429077770305",
+                "source": "@ylecun",
+                "date": "Tue Jun 02 01:46:20 +0000 2026",
+                "metrics": {
+                  "favorites": 0,
+                  "retweets": 249,
+                  "views": "1"
+                }
+              },
+              {
+                "title": "RT @NYUDataScience: Eero P. Simoncelli, CDS founding member and professor, was elected to the National Academy of Scienc",
+                "summary": "RT @NYUDataScience: Eero P. Simoncelli, CDS founding member and professor, was elected to the National Academy of Sciences, recognizing “di…",
+                "url": "https://x.com/ylecun/status/2061556789863158097",
+                "source": "@ylecun",
+                "date": "Mon Jun 01 21:13:35 +0000 2026",
+                "metrics": {
+                  "favorites": 0,
+                  "retweets": 5,
+                  "views": "3"
+                }
+              },
+              {
+                "title": "RT @RepMikeLevin: Let me get this straight.  ",
+                "summary": "RT @RepMikeLevin: Let me get this straight.  \n \nHoward Lutnick, Trump’s Commerce Secretary, got caught lying about his relationship with Je…",
+                "url": "https://x.com/ylecun/status/2061554814547288168",
+                "source": "@ylecun",
+                "date": "Mon Jun 01 21:05:44 +0000 2026",
+                "metrics": {
+                  "favorites": 0,
+                  "retweets": 5497,
+                  "views": "4"
+                }
+              },
+              {
+                "title": "RT @XAMTO_AI: 卧槽！你随便扔一首 YouTube 歌，它就能直接拆成 6 条独立音轨——人声、鼓、贝斯、吉他、钢琴、其他……全给你扒出来！",
+                "summary": "RT @XAMTO_AI: 卧槽！你随便扔一首 YouTube 歌，它就能直接拆成 6 条独立音轨——人声、鼓、贝斯、吉他、钢琴、其他……全给你扒出来！\n\n这工具叫 StemDeck，GitHub 开源项目，本地跑全程不上传、不注册、不花钱！它基于 Demucs 模型，拆完后给…",
+                "url": "https://x.com/ylecun/status/2061468927536791850",
+                "source": "@ylecun",
+                "date": "Mon Jun 01 15:24:27 +0000 2026",
+                "metrics": {
+                  "favorites": 0,
+                  "retweets": 661,
+                  "views": "1"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "G_M04_switch_timeline_to_lookup",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "skill": "multiturn_switch_timeline_to_lookup",
+        "difficulty": "hard",
+        "what_it_tests": "3 turns: bỏ Twitter/timeline, chuyển sang lookup news, carry chủ đề AI và timeframe=week từ 'tuần này'."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tweet của Elon Musk về AI"
+        },
+        {
+          "role": "user",
+          "content": "Thôi bỏ Twitter, tìm tin tức trên web đi"
+        },
+        {
+          "role": "user",
+          "content": "Vẫn về AI, tin trong tuần này"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "query": "AI",
+              "topic": "news",
+              "timeframe": "week"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "routing_correct": true,
+        "args_correct": false,
+        "actual_tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "timeframe": "week",
+              "query": "AI news",
+              "topic": "news"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": "wrong_arg_value",
+        "failure_type": "wrong_tool",
+        "failures": [
+          "query: expected 'AI', got 'AI news'"
+        ]
+      },
+      "tool_results": [
+        {
+          "tool": "lookup",
+          "args": {
+            "timeframe": "week",
+            "query": "AI news",
+            "topic": "news"
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "AI news",
+            "topic": "news",
+            "timeframe": "week",
+            "items": [
+              {
+                "title": "19Network Introduces the UAE’s First AI-Powered Newsroom,Redefini - The National Law Review",
+                "url": "https://natlawreview.com/press-releases/19network-introduces-uaes-first-ai-powered-newsroomredefining-digital-news",
+                "source": "natlawreview.com",
+                "summary": "### 19Network Introduces the UAE’s First AI-Powered Newsroom,Redefining Digital News for Business,Real Estate and AI Tech. *19Network launches an AI-powered newsroom covering UAE news, real estate, technology, business, lifestyle and global developments.*. DUBAI, UNITED ARAB EMIRATES, June 2, 2026 /EINPresswire.com/ -- 19Network.com, a UAE-based digital news and editorial platform, has introduced itself as the UAE’s first AI-powered newsroom, built to deliver fast, relevant and sector-focused coverage across the UAE, the wider GCC and international markets. Its core coverage areas include UAE news, real estate, artificial intelligence, technology, business, finance, lifestyle, travel, entertainment, sports, education, health and global developments. With its AI-powered newsroom direction, 19Network aims to provide a new model for digital publishing from the UAE, focused on speed, sector understanding and editorial relevance. As the UAE continues to strengthen its position as a global hub for business, investment, innovation, real estate, tourism and technology, the need for sharp, timely and multi-sector news coverage has become more important than ever.",
+                "score": 0.99879336
+              },
+              {
+                "title": "Traffic to DuckDuckGo's proudly 'No AI' search page has tripled since latest Google AI search update - PC Gamer",
+                "url": "https://www.pcgamer.com/gaming-industry/traffic-to-duckduckgos-proudly-no-ai-search-page-has-tripled-since-latest-google-ai-search-update/",
+                "source": "pcgamer.com",
+                "summary": "See the latest gaming news first. For the quickest way to join, simply enter your email below and get access. We will send a confirmation and sign you up to our newsletter to keep you updated on all your gaming news. By submitting your information you agree to the Terms & Conditions and Privacy Policy and are aged 16 or over. Enter your email below and we'll send confirmation, and sign you up to our newsletter. By submitting your information, you confirm you are aged 16 or over, have read our Privacy Policy and agree to the Terms & Conditions. News and reviews of the latest PC hardware. Privacy-focused search engine DuckDuckGo has announced that its opt-in, generative AI-limiting \"No AI\" search page has received three times as much traffic since Google's latest round of updates and PR for AI mode search. > Since Google revealed its plans for an AI search overhaul, visits to our \"No AI\" search page have tripled…and they’re still rising!",
+                "score": 0.9853843
+              },
+              {
+                "title": "SoftBank lines up €75bn data centre investment in France - Total Telecom",
+                "url": "https://totaltele.com/softbank-lines-up-e75bn-data-centre-investment-in-france/",
+                "source": "totaltele.com",
+                "summary": "Posted by Harry Baldock | Jun 1, 2026 | Investment, INFRASTRUCTURE, AI, COMPANY NEWS, Cloud, Data Centres, Europe, News. ###### “France is uniquely positioned to become a leading AI infrastructure hub in Europe,” says SoftBank CEO Masayoshi Son. This week, SoftBank Group has announced plans to invest up to €75 billion to deploy 5 GW of AI-focused data centres in France. “With its industrial capabilities, talent base and national ambition, France is uniquely positioned to become a leading AI infrastructure hub in Europe.”. “SoftBank’s decision to invest massively in AI datacenters in France – a first for the group in Europe – is testament to President Emmanuel Macron’s ambition to position France as a leading destination all along the AI value chain,” said Roland Lescure, Minister of Economy, Finance, & Industrial, Energy, & Digital Sovereignty. France is quickly becoming something of a European champion for AI data centres, with major tech and telco consortium AION pledging to build an ‘AI gigafactory’ in the country just last month.",
+                "score": 0.98087597
+              },
+              {
+                "title": "Health Tech Weekly Rundown: Oura's latest product launch - Fierce Healthcare",
+                "url": "https://www.fiercehealthcare.com/health-tech/health-tech-weekly-rundown-reimagine-care-moffitt-cancer-center-expand-ai-powered",
+                "source": "fiercehealthcare.com",
+                "summary": "# Weekly Rundown—Moffitt Cancer Center expands Reimagine Care's virtual oncology model; Tanner Health deploys AI workforce solution. Disney Philips MRI imaging Artificial Intelligence Oura Moffitt Cancer Center AI and Machine Learning Digital Health Telehealth Health Tech. Stay up to date on the latest in health tech, digital health and health AI news with this weekly brief. This is news from the week of May 25 to May 29. ### Tanner Health, Worki partner to deploy AI workforce solution. Healthcare workforce infrastructure company Worki announced Thursday a partnership with Tanner Health to deploy its Career Amplifier solution, which provides AI-enabled career guidance for frontline workers. The deployment is the first live implementation of Worki’s AI Workforce Unifying Infrastructure. Reimagine Care and Moffitt Cancer Center are expanding an AI-enabled virtual oncology care program with Moffitt Cancer Center, following successful early outcomes observed in an initial implementation phase. The model expands cancer care beyond scheduled visits through continuous support by Remi, Reimagine’s AI assistant, and a virtual oncology care team, according to the May 21 announcement.",
+                "score": 0.97423947
+              },
+              {
+                "title": "As ASEAN manufacturing race heats up, can the Philippines still compete in EVs, AI? - ABS-CBN",
+                "url": "https://www.abs-cbn.com/news/business/2026/5/31/as-asean-manufacturing-race-heats-up-can-the-philippines-still-compete-in-evs-ai-1024",
+                "source": "abs-cbn.com",
+                "summary": "## As ASEAN manufacturing race heats up, can the Philippines still compete in EVs, AI? #### AI. #### News. #### Entertainment. #### Lifestyle. #### Sports. #### Metro.Style. #### Sudoku#### Word of the Day#### Lotto#### Horoscope. #### Raine Musñgi,. #### ABS-CBN News. #### Published May 31, 2026 10:24 AM PHT. #### Terms of Service#### AI Policy. #### manufacturing. #### ASEAN. #### Vietnam. #### ABS-CBN is the leading media and entertainment company in the Philippines, offering quality content across TV, radio, digital, and film. Committed to public service and promoting Filipino values, ABS-CBN continues to inspire and connect audiences worldwide. #### Corporate. #### Investors. #### Governance. #### International Distribution. #### NPC Seal of Registration. #### Privacy Policy. #### AI Policy. #### Terms of Service. #### Advertise with Us. #### © 2026ABS-CBN Corporation.",
+                "score": 0.95822614
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "G_M05_clarify_then_papers",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "skill": "multiturn_clarify_papers",
+        "difficulty": "hard",
+        "what_it_tests": "3 turns: thiếu topic → clarify; sau khi có topic, carry max_results=3 và sort_by=submittedDate từ 'mới nhất'."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tìm paper nghiên cứu này giúp mình"
+        },
+        {
+          "role": "user",
+          "content": "Về reinforcement learning from human feedback"
+        },
+        {
+          "role": "user",
+          "content": "Chỉ lấy 3 paper mới nhất thôi"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "papers",
+            "args": {
+              "query": "reinforcement learning from human feedback",
+              "max_results": 3,
+              "sort_by": "submittedDate"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "routing_correct": true,
+        "args_correct": false,
+        "actual_tool_calls": [
+          {
+            "name": "papers",
+            "args": {
+              "max_results": 3,
+              "sort_by": "lastUpdatedDate",
+              "query": "reinforcement learning from human feedback"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "missing_info",
+        "observed_mismatch": "wrong_arg_value",
+        "failure_type": "missing_info",
+        "failures": [
+          "sort_by: expected 'submittedDate', got 'lastUpdatedDate'"
+        ]
+      },
+      "tool_results": [
+        {
+          "tool": "papers",
+          "args": {
+            "max_results": 3,
+            "sort_by": "lastUpdatedDate",
+            "query": "reinforcement learning from human feedback"
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "error": "HTTPError",
+            "message": "429 Client Error: Unknown Error for url: https://export.arxiv.org/api/query?search_query=all%3Areinforcement+AND+all%3Alearning+AND+all%3Afrom+AND+all%3Ahuman+AND+all%3Afeedback&max_results=3&sortBy=lastUpdatedDate&sortOrder=descending"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,412 @@
+{
+  "transcript_id": "v3_gemini_20260602T153337052395",
+  "version": "v3",
+  "artifact_version": "v3+pa12ae8b7f7a3+tdcc78154b0cf",
+  "prompt_hash": "a12ae8b7f7a3bdf632b56a9c99cb2b6e415012f3d0d4a3e15ff2ea3807b32530",
+  "tools_hash": "dcc78154b0cfb016e4e1d0195ad6559090d08cfd42919407c1123981502b7aff",
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "turns": [
+    {
+      "user": "Tin tức AI hôm nay có gì nổi bật?",
+      "assistant_text": "# Tin tức AI nổi bật hôm nay\n\n## Tài chính & Đầu tư\n- Anthropic đã nộp hồ sơ IPO bí mật tại Mỹ, đánh dấu một cột mốc quan trọng trong làn sóng AI. OpenAI cũng được cho là đang chuẩn bị cho bước đi tương tự trong những tuần tới. - [huffpost.com](https://www.huffpost.com/entry/anthropic-ai-ipo-wall-street_n_6a1db1fae4b032392fa3fc39)\n\n## Hạ tầng AI\n- SoftBank công bố kế hoạch đầu tư 75 tỷ Euro để xây dựng các trung tâm dữ liệu tập trung vào AI tại Pháp, với mục tiêu biến quốc gia này thành trung tâm hạ tầng AI hàng đầu châu Âu. - [totaltele.com](https://totaltele.com/softbook-lines-up-e75bn-data-centre-investment-in-france/)\n\n## Bản quyền & Truyền thông\n- Nhà xuất bản của New York Times, A.G. Sulzberger, cảnh báo rằng các công ty AI đang đưa ra những lựa chọn vi phạm luật pháp và có thể gây ra 'tác hại không cần thiết' cho ngành báo chí cũng như quyền tiếp cận thông tin đáng tin cậy của công chúng. - [variety.com](https://variety.com/2026/biz/news/new-york-times-ai-companies-choices-unnecessary-harm-1236763934/)\n\n## Thị trường AI tiêu dùng\n- Báo cáo từ PitchBook cho thấy định giá các kỳ lân AI tiêu dùng đã tăng gấp ba lần lên 1,4 nghìn tỷ USD vào cuối năm 2025, nhưng thị trường đang trở nên tập trung cao độ vào một số ít nền tảng lớn. - [pitchbook.com](https://pitchbook.com/news/reports/q2-2026-the-state-of-consumer-ai)",
+      "tool_events": [
+        {
+          "tool": "lookup",
+          "args": {
+            "timeframe": "day",
+            "topic": "news",
+            "query": "AI news"
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "AI news",
+            "topic": "news",
+            "timeframe": "day",
+            "items": [
+              {
+                "title": "AI Giant Anthropic Confidentially Files For U.S. IPO As Investors Bet Big On AI Future - HuffPost",
+                "url": "https://www.huffpost.com/entry/anthropic-ai-ipo-wall-street_n_6a1db1fae4b032392fa3fc39",
+                "source": "huffpost.com",
+                "summary": "# AI Giant Anthropic Confidentially Files For U.S. IPO As Investors Bet Big On AI Future. AI giant Anthropic said on Monday it has confidentially filed for a U.S. initial public offering, teeing up what could become the watershed moment for Wall Street's AI frenzy. June 1 (Reuters) - AI giant Anthropic said on Monday it has confidentially filed for a U.S. initial public offering, teeing up what could become a watershed moment for Wall Street’s AI frenzy. The crucial step toward a listing comes on the heels of SpaceX’s mega-IPO, which is on course to rewrite the record books as the Elon Musk-led company pursues a $75 billion offering at a $1.75 trillion valuation. OpenAI is also preparing to confidentially file for a U.S. IPO in the coming weeks, a source familiar with the matter told Reuters in late May, adding to a wave of blockbuster listings anticipated in the year ahead.",
+                "score": 0.5914643
+              },
+              {
+                "title": "SoftBank lines up €75bn data centre investment in France - Total Telecom",
+                "url": "https://totaltele.com/softbank-lines-up-e75bn-data-centre-investment-in-france/",
+                "source": "totaltele.com",
+                "summary": "Posted by Harry Baldock | Jun 1, 2026 | Investment, INFRASTRUCTURE, AI, COMPANY NEWS, Cloud, Data Centres, Europe, News. ###### “France is uniquely positioned to become a leading AI infrastructure hub in Europe,” says SoftBank CEO Masayoshi Son. This week, SoftBank Group has announced plans to invest up to €75 billion to deploy 5 GW of AI-focused data centres in France. “With its industrial capabilities, talent base and national ambition, France is uniquely positioned to become a leading AI infrastructure hub in Europe.”. “SoftBank’s decision to invest massively in AI datacenters in France – a first for the group in Europe – is testament to President Emmanuel Macron’s ambition to position France as a leading destination all along the AI value chain,” said Roland Lescure, Minister of Economy, Finance, & Industrial, Energy, & Digital Sovereignty. France is quickly becoming something of a European champion for AI data centres, with major tech and telco consortium AION pledging to build an ‘AI gigafactory’ in the country just last month.",
+                "score": 0.55478466
+              },
+              {
+                "title": "AI & Tech Brief: Exclusive | AI ad campaigns slam Trahan - The Washington Post",
+                "url": "https://www.washingtonpost.com/wp-intelligence/ai-tech-brief/2026/06/01/ai-tech-brief-exclusive-ai-ad-campaigns-slam-trahan/",
+                "source": "washingtonpost.com",
+                "summary": "AI & Tech Brief from WP Intelligence. # AI & Tech Brief: Exclusive | AI ad campaigns slam Trahan. Plus, Anthropic files for a blockbuster initial public offering. Make us preferred on Google. Sign up here to get this newsletter in your inbox. * **Exclusive:** AI safety group Americans for Responsible Innovation rolls out a six-figure ad campaign this week attacking Rep. Lori Trahan (D-Massachusetts), arguing that she’s “taking the side” of AI oligarchs in her bipartisan legislative efforts. * The AI safety community doesn’t want to hand power of AI regulation to President Donald Trump’s administration now that states are passing more rigorous AI laws — and the California and New York attorneys general are challenging big AI companies. * Nvidia is rolling out a new “world model” simulator for robots and a new design platform for robot developers. In doing so, the company is running the same business playbook it did to become so dominant in the chip market.",
+                "score": 0.5393963
+              },
+              {
+                "title": "Q2 2026 The State of Consumer AI - PitchBook",
+                "url": "https://pitchbook.com/news/reports/q2-2026-the-state-of-consumer-ai",
+                "source": "pitchbook.com",
+                "summary": "# The State of Consumer AI. ### Series B emerges as the highest-conviction entry point in consumer AI venture. Cumulative consumer unicorn valuations tripled YoY to reach $1.4 trillion by the end of 2025, but the top 10 companies now account for nearly 80% of that total value, making the asset class functionally a bet on a handful of platforms. Meanwhile, a growing cohort of AI-native products have pushed consumer pricing past the $100-per-month threshold, a level that was commercially nonviable before the current wave and signals a blurring of consumer and enterprise-grade willingness to pay. Series B stands out as the highest-conviction entry point, combining a 97.1% success rate with 63.5% annualized returns. Against this backdrop, consumer sentiment has dropped to levels not seen since the global financial crisis, K-shaped wealth divergence is narrowing the addressable middle of the market, and generative AI app downloads have scaled to 3.8 billion annually, underscoring both the depth of adoption and the intensity of competition that private market investors must navigate.",
+                "score": 0.5382315
+              },
+              {
+                "title": "NYT Publisher Warns AI Companies May Lead to 'Unnecessary Harm' - Variety",
+                "url": "https://variety.com/2026/biz/news/new-york-times-ai-companies-choices-unnecessary-harm-1236763934/",
+                "source": "variety.com",
+                "summary": "# New York Times Publisher Warns That AI Companies Are Making Choices That ‘Violate Settled Law’ and Could Cause a ‘Great Deal of Unnecessary Harm’. New York Times publisher A.G. Sulzberger warned that AI companies were making choices that could lead to “a great deal of unnecessary harm” to the news business and the public’s access to reliable sources, in a speech delivered during the World News Media Congress in France on Monday. Companies leading the development of generative-AI systems — including OpenAI, Meta, Anthropic and Google — are “failing to embrace a core responsibility” of their control over the data fueling the technology’s development, Sulzberger said: making sure the public has access to “trustworthy” news. He pinned the cause on the companies’ “hijacking” of the public’s attention, spurred by the content they’ve trained their large language models on, including news articles. I’m warning that AI companies are making choices that violate settled law, threaten the viability of creative work, and appear likely to cause a great deal of unnecessary harm.”.",
+                "score": 0.52962893
+              }
+            ]
+          }
+        },
+        {
+          "tool": "format",
+          "args": {
+            "template": "sections",
+            "items": [
+              {
+                "url": "https://www.huffpost.com/entry/anthropic-ai-ipo-wall-street_n_6a1db1fae4b032392fa3fc39",
+                "title": "Anthropic nộp hồ sơ IPO bí mật tại Mỹ",
+                "summary": "Anthropic đã nộp hồ sơ IPO bí mật tại Mỹ, đánh dấu một cột mốc quan trọng trong làn sóng AI. OpenAI cũng được cho là đang chuẩn bị cho bước đi tương tự trong những tuần tới.",
+                "section": "Tài chính & Đầu tư",
+                "source": "huffpost.com"
+              },
+              {
+                "source": "totaltele.com",
+                "section": "Hạ tầng AI",
+                "summary": "SoftBank công bố kế hoạch đầu tư 75 tỷ Euro để xây dựng các trung tâm dữ liệu tập trung vào AI tại Pháp, với mục tiêu biến quốc gia này thành trung tâm hạ tầng AI hàng đầu châu Âu.",
+                "title": "SoftBank đầu tư 75 tỷ Euro vào trung tâm dữ liệu tại Pháp",
+                "url": "https://totaltele.com/softbook-lines-up-e75bn-data-centre-investment-in-france/"
+              },
+              {
+                "source": "variety.com",
+                "section": "Bản quyền & Truyền thông",
+                "summary": "Nhà xuất bản của New York Times, A.G. Sulzberger, cảnh báo rằng các công ty AI đang đưa ra những lựa chọn vi phạm luật pháp và có thể gây ra 'tác hại không cần thiết' cho ngành báo chí cũng như quyền tiếp cận thông tin đáng tin cậy của công chúng.",
+                "title": "New York Times cảnh báo về tác hại của các công ty AI",
+                "url": "https://variety.com/2026/biz/news/new-york-times-ai-companies-choices-unnecessary-harm-1236763934/"
+              },
+              {
+                "section": "Thị trường AI tiêu dùng",
+                "summary": "Báo cáo từ PitchBook cho thấy định giá các kỳ lân AI tiêu dùng đã tăng gấp ba lần lên 1,4 nghìn tỷ USD vào cuối năm 2025, nhưng thị trường đang trở nên tập trung cao độ vào một số ít nền tảng lớn.",
+                "title": "Báo cáo trạng thái AI tiêu dùng Q2 2026",
+                "url": "https://pitchbook.com/news/reports/q2-2026-the-state-of-consumer-ai",
+                "source": "pitchbook.com"
+              }
+            ],
+            "headline": "Tin tức AI nổi bật hôm nay"
+          },
+          "result": {
+            "tool": "render_digest",
+            "template": "sections",
+            "markdown": "# Tin tức AI nổi bật hôm nay\n\n## Tài chính & Đầu tư\n- Anthropic đã nộp hồ sơ IPO bí mật tại Mỹ, đánh dấu một cột mốc quan trọng trong làn sóng AI. OpenAI cũng được cho là đang chuẩn bị cho bước đi tương tự trong những tuần tới. - [huffpost.com](https://www.huffpost.com/entry/anthropic-ai-ipo-wall-street_n_6a1db1fae4b032392fa3fc39)\n\n## Hạ tầng AI\n- SoftBank công bố kế hoạch đầu tư 75 tỷ Euro để xây dựng các trung tâm dữ liệu tập trung vào AI tại Pháp, với mục tiêu biến quốc gia này thành trung tâm hạ tầng AI hàng đầu châu Âu. - [totaltele.com](https://totaltele.com/softbook-lines-up-e75bn-data-centre-investment-in-france/)\n\n## Bản quyền & Truyền thông\n- Nhà xuất bản của New York Times, A.G. Sulzberger, cảnh báo rằng các công ty AI đang đưa ra những lựa chọn vi phạm luật pháp và có thể gây ra 'tác hại không cần thiết' cho ngành báo chí cũng như quyền tiếp cận thông tin đáng tin cậy của công chúng. - [variety.com](https://variety.com/2026/biz/news/new-york-times-ai-companies-choices-unnecessary-harm-1236763934/)\n\n## Thị trường AI tiêu dùng\n- Báo cáo từ PitchBook cho thấy định giá các kỳ lân AI tiêu dùng đã tăng gấp ba lần lên 1,4 nghìn tỷ USD vào cuối năm 2025, nhưng thị trường đang trở nên tập trung cao độ vào một số ít nền tảng lớn. - [pitchbook.com](https://pitchbook.com/news/reports/q2-2026-the-state-of-consumer-ai)\n",
+            "item_count": 4
+          }
+        }
+      ],
+      "status": "answered"
+    },
+    {
+      "user": "Tóm tắt 5 tweet mới nhất giúp mình\n→ agent should ask for handle. Then reply:\nCủa Andrej Karpathy nhé",
+      "assistant_text": "## Andrej Karpathy's Tweets\n- Andrej Karpathy thông báo đã gia nhập Anthropic, bày tỏ sự hào hứng khi quay lại với công việc R&D tại lĩnh vực LLM. - [@karpathy](https://x.com/karpathy/status/2056753169888334312)\n- Karpathy chia sẻ mẹo yêu cầu LLM xuất kết quả dưới dạng HTML để có trải nghiệm tốt hơn, đồng thời thảo luận về tương lai của giao diện người-AI (từ văn bản đến video tương tác). - [@karpathy](https://x.com/karpathy/status/2053872850101285137)\n- Chia sẻ một trích dẫn mà ông thường xuyên sử dụng gần đây. - [@karpathy](https://x.com/karpathy/status/2049907410303865030)\n- Tóm tắt buổi trò chuyện tại Sequoia Ascent 2026, thảo luận về các chân trời mới của LLM (ngoài việc lập trình), sự 'lồi lõm' trong khả năng của LLM và nền kinh tế đại lý (agent-native economy). - [@karpathy](https://x.com/karpathy/status/2049903821095354523)\n- Retweet về dự án mới cùng Alec Radford và David Duvenaud liên quan đến việc trò chuyện với những người từ quá khứ. - [@karpathy](https://x.com/karpathy/status/2049180863036813717)",
+      "tool_events": [
+        {
+          "tool": "timeline",
+          "args": {
+            "screenname": "karpathy",
+            "limit": 5
+          },
+          "result": {
+            "tool": "get_user_tweets",
+            "screenname": "karpathy",
+            "items": [
+              {
+                "title": "Personal update: I've joined Anthropic. I think the next few years at the frontier of LLMs will be especially formative.",
+                "summary": "Personal update: I've joined Anthropic. I think the next few years at the frontier of LLMs will be especially formative. I am very excited to join the team here and get back to R&amp;D. I remain deeply passionate about education and plan to resume my work on it in time.",
+                "url": "https://x.com/karpathy/status/2056753169888334312",
+                "source": "@karpathy",
+                "date": "Tue May 19 15:05:42 +0000 2026",
+                "metrics": {
+                  "favorites": 149514,
+                  "retweets": 11162,
+                  "views": "27353108"
+                }
+              },
+              {
+                "title": "This works really well btw, at the end of your query ask your LLM to \"structure your response as HTML\", then view the ge",
+                "summary": "This works really well btw, at the end of your query ask your LLM to \"structure your response as HTML\", then view the generated file in your browser. I've also had some success asking the LLM to present its output as slideshows, etc.\n\nMore generally, imo audio is the human-preferred input to AIs but vision (images/animations/video) is the preferred output from them. Around a ~third of our brains are a massively parallel processor dedicated to vision, it is the 10-lane superhighway of information into brain. As AI improves, I think we'll see a progression that takes advantage:\n\n1) raw text (hard/effortful to read)\n2) markdown (bold, italic, headings, tables, a bit easier on the eyes) <-- current default\n3) HTML (still procedural with underlying code, but a lot more flexibility on the graphics, layout, even interactivity) <-- early but forming new good default\n...4,5,6,...\nn) interactive neural videos/simulations\n\nImo the extrapolation (though the technology doesn't exist just yet) ends in some kind of interactive videos generated directly by a diffusion neural net. Many open questions as to how exact/procedural \"Software 1.0\" artifacts (e.g. interactive simulations) may be woven together with neural artifacts (diffusion grids), but generally something in the direction of the recently viral https://t.co/z21CP5iQfu\n\nThere are also improvements necessary and pending at the input. Audio nor text nor video alone are not enough, e.g. I feel a need to point/gesture to things on the screen, similar to all the things you would do with a person physically next to you and your computer screen.\n\nTLDR The input/output mind meld between humans and AIs is ongoing and there is a lot of work to do and significant progress to be made, way before jumping all the way into neuralink-esque BCIs and all that. For what's worth exploring at the current stage, hot tip try ask for HTML.",
+                "url": "https://x.com/karpathy/status/2053872850101285137",
+                "source": "@karpathy",
+                "date": "Mon May 11 16:20:21 +0000 2026",
+                "metrics": {
+                  "favorites": 19141,
+                  "retweets": 2015,
+                  "views": "3752119"
+                }
+              },
+              {
+                "title": "This is the the quote I've been citing a lot recently.",
+                "summary": "This is the the quote I've been citing a lot recently.",
+                "url": "https://x.com/karpathy/status/2049907410303865030",
+                "source": "@karpathy",
+                "date": "Thu Apr 30 17:43:06 +0000 2026",
+                "metrics": {
+                  "favorites": 46518,
+                  "retweets": 4366,
+                  "views": "2553934"
+                }
+              },
+              {
+                "title": "Fireside chat at Sequoia Ascent 2026 from a ~week ago. Some highlights:",
+                "summary": "Fireside chat at Sequoia Ascent 2026 from a ~week ago. Some highlights:\n\nThe first theme I tried to push on is that LLMs are about a lot more than just speeding up what existed before (e.g. coding). Three examples of new horizons:\n\n1. menugen: an app that can be fully engulfed by LLMs, with no classical code needed: input an image, output an image and an LLM can natively do the thing.\n2. install .md skills instead of install .sh scripts. Why create a complex Software 1.0 bash script for e.g. installing a piece of software if you can write the installation out in words and say \"just show this to your LLM\".  The LLM is an advanced interpreter of English and can intelligently target installation to your setup, debug everything inline, etc.\n3. LLM knowledge bases as an example of something that was *impossible* with classical code because it's computation over unstructured data (knowledge) from arbitrary sources and in arbitrary formats, including simply text articles etc.\n\nI pushed on these because in every new paradigm change, the obvious things are always in the realm of speeding up or somehow improving what existed, but here we have examples of functionality that either suddenly perhaps shouldn't even exist (1,2), or was fundamentally not possible before (3).\n\nThe second (ongoing) theme is trying to explain the pattern of jaggedness in LLMs. How it can be true that a single artifact will simultaneously 1) coherently refactor a 100,000-line code base *and* 2) tell you to walk to the car wash to wash your car. I previously wrote about the source of this as having to do with verifiability of a domain, here I expand on this as having to also do with economics because revenue/TAM dictates what the frontier labs choose to package into training data distributions during RL. You're either in the data distribution (on the rails of the RL circuits) and flying or you're off-roading in the jungle with a machete, in relative terms. Still not 100% satisfied with this, but it's an ongoing struggle to build an accurate model of LLM capabilities if you wish to practically take advantage of their power while avoiding their pitfalls, which brings me to...\n\nLast theme is the agent-native economy. The decomposition of products and services into sensors, actuators and logic (split up across all of 1.0/2.0/3.0 computing paradigms), how we can make information maximally legible to LLMs, some words on the quickly emerging agentic engineering and its skill set, related hiring practices, etc., possibly even hints/dreams of fully neural computing handling the vast majority of computation with some help from (classical) CPU coprocessors.",
+                "url": "https://x.com/karpathy/status/2049903821095354523",
+                "source": "@karpathy",
+                "date": "Thu Apr 30 17:28:50 +0000 2026",
+                "metrics": {
+                  "favorites": 6044,
+                  "retweets": 794,
+                  "views": "1164951"
+                }
+              },
+              {
+                "title": "RT @status_effects: New work with @AlecRad and @DavidDuvenaud:",
+                "summary": "RT @status_effects: New work with @AlecRad and @DavidDuvenaud:\n\nHave you ever dreamed of talking to someone from the past? Introducing talk…",
+                "url": "https://x.com/karpathy/status/2049180863036813717",
+                "source": "@karpathy",
+                "date": "Tue Apr 28 17:36:04 +0000 2026",
+                "metrics": {
+                  "favorites": 0,
+                  "retweets": 391,
+                  "views": "84"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "tool": "format",
+          "args": {
+            "items": [
+              {
+                "url": "https://x.com/karpathy/status/2056753169888334312",
+                "summary": "Andrej Karpathy thông báo đã gia nhập Anthropic, bày tỏ sự hào hứng khi quay lại với công việc R&D tại lĩnh vực LLM.",
+                "section": "Andrej Karpathy's Tweets",
+                "source": "@karpathy",
+                "title": "Gia nhập Anthropic"
+              },
+              {
+                "title": "Mẹo sử dụng LLM và tương lai giao diện AI",
+                "source": "@karpathy",
+                "section": "Andrej Karpathy's Tweets",
+                "url": "https://x.com/karpathy/status/2053872850101285137",
+                "summary": "Karpathy chia sẻ mẹo yêu cầu LLM xuất kết quả dưới dạng HTML để có trải nghiệm tốt hơn, đồng thời thảo luận về tương lai của giao diện người-AI (từ văn bản đến video tương tác)."
+              },
+              {
+                "section": "Andrej Karpathy's Tweets",
+                "source": "@karpathy",
+                "summary": "Chia sẻ một trích dẫn mà ông thường xuyên sử dụng gần đây.",
+                "url": "https://x.com/karpathy/status/2049907410303865030",
+                "title": "Trích dẫn tâm đắc"
+              },
+              {
+                "title": "Fireside chat tại Sequoia Ascent 2026",
+                "url": "https://x.com/karpathy/status/2049903821095354523",
+                "summary": "Tóm tắt buổi trò chuyện tại Sequoia Ascent 2026, thảo luận về các chân trời mới của LLM (ngoài việc lập trình), sự 'lồi lõm' trong khả năng của LLM và nền kinh tế đại lý (agent-native economy).",
+                "source": "@karpathy",
+                "section": "Andrej Karpathy's Tweets"
+              },
+              {
+                "title": "Dự án mới (Retweet)",
+                "section": "Andrej Karpathy's Tweets",
+                "source": "@karpathy",
+                "summary": "Retweet về dự án mới cùng Alec Radford và David Duvenaud liên quan đến việc trò chuyện với những người từ quá khứ.",
+                "url": "https://x.com/karpathy/status/2049180863036813717"
+              }
+            ],
+            "template": "sections"
+          },
+          "result": {
+            "tool": "render_digest",
+            "template": "sections",
+            "markdown": "## Andrej Karpathy's Tweets\n- Andrej Karpathy thông báo đã gia nhập Anthropic, bày tỏ sự hào hứng khi quay lại với công việc R&D tại lĩnh vực LLM. - [@karpathy](https://x.com/karpathy/status/2056753169888334312)\n- Karpathy chia sẻ mẹo yêu cầu LLM xuất kết quả dưới dạng HTML để có trải nghiệm tốt hơn, đồng thời thảo luận về tương lai của giao diện người-AI (từ văn bản đến video tương tác). - [@karpathy](https://x.com/karpathy/status/2053872850101285137)\n- Chia sẻ một trích dẫn mà ông thường xuyên sử dụng gần đây. - [@karpathy](https://x.com/karpathy/status/2049907410303865030)\n- Tóm tắt buổi trò chuyện tại Sequoia Ascent 2026, thảo luận về các chân trời mới của LLM (ngoài việc lập trình), sự 'lồi lõm' trong khả năng của LLM và nền kinh tế đại lý (agent-native economy). - [@karpathy](https://x.com/karpathy/status/2049903821095354523)\n- Retweet về dự án mới cùng Alec Radford và David Duvenaud liên quan đến việc trò chuyện với những người từ quá khứ. - [@karpathy](https://x.com/karpathy/status/2049180863036813717)\n",
+            "item_count": 5
+          }
+        }
+      ],
+      "status": "answered"
+    },
+    {
+      "user": "Đăng bản tin này lên Telegram: AI đang thay đổi thế giới\n→ agent should ask for confirmation, not send immediately.",
+      "assistant_text": "Bạn có chắc chắn muốn đăng nội dung \"AI đang thay đổi thế giới\" lên Telegram không?",
+      "tool_events": [
+        {
+          "tool": "clarify",
+          "args": {
+            "response_type": "yes_no",
+            "question": "Bạn có chắc chắn muốn đăng nội dung \"AI đang thay đổi thế giới\" lên Telegram không?"
+          },
+          "result": {
+            "tool": "ask_user",
+            "question": "Bạn có chắc chắn muốn đăng nội dung \"AI đang thay đổi thế giới\" lên Telegram không?",
+            "response_type": "yes_no",
+            "options": [],
+            "awaiting_user": true
+          }
+        }
+      ],
+      "status": "waiting_for_user"
+    },
+    {
+      "user": "Tóm tắt 5 tweet mới nhất giúp mình",
+      "assistant_text": "Bạn muốn xem 5 tweet mới nhất của tài khoản nào? Vui lòng cung cấp tên hoặc handle của tài khoản đó.",
+      "tool_events": [
+        {
+          "tool": "clarify",
+          "args": {
+            "question": "Bạn muốn xem 5 tweet mới nhất của tài khoản nào? Vui lòng cung cấp tên hoặc handle của tài khoản đó."
+          },
+          "result": {
+            "tool": "ask_user",
+            "question": "Bạn muốn xem 5 tweet mới nhất của tài khoản nào? Vui lòng cung cấp tên hoặc handle của tài khoản đó.",
+            "response_type": "text",
+            "options": [],
+            "awaiting_user": true
+          }
+        }
+      ],
+      "status": "waiting_for_user"
+    },
+    {
+      "user": "Của Andrej Karpathy",
+      "assistant_text": "Dưới đây là 5 tweet mới nhất của Andrej Karpathy:\n\n- Andrej Karpathy thông báo đã gia nhập Anthropic, bày tỏ sự hào hứng khi quay lại với công việc R&D tại lĩnh vực LLM. - [@karpathy](https://x.com/karpathy/status/2056753169888334312)\n- Karpathy chia sẻ mẹo yêu cầu LLM xuất kết quả dưới dạng HTML để có trải nghiệm tốt hơn, đồng thời thảo luận về tương lai của giao diện người-AI (từ văn bản đến video tương tác). - [@karpathy](https://x.com/karpathy/status/2053872850101285137)\n- Chia sẻ một trích dẫn mà ông thường xuyên sử dụng gần đây. - [@karpathy](https://x.com/karpathy/status/2049907410303865030)\n- Tóm tắt buổi trò chuyện tại Sequoia Ascent 2026, thảo luận về các chân trời mới của LLM (ngoài việc lập trình), sự 'lồi lõm' trong khả năng của LLM và nền kinh tế đại lý (agent-native economy). - [@karpathy](https://x.com/karpathy/status/2049903821095354523)\n- Retweet về dự án mới cùng Alec Radford và David Duvenaud liên quan đến việc trò chuyện với những người từ quá khứ. - [@karpathy](https://x.com/karpathy/status/2049180863036813717)",
+      "tool_events": [
+        {
+          "tool": "timeline",
+          "args": {
+            "limit": 5,
+            "screenname": "karpathy"
+          },
+          "result": {
+            "tool": "get_user_tweets",
+            "screenname": "karpathy",
+            "items": [
+              {
+                "title": "Personal update: I've joined Anthropic. I think the next few years at the frontier of LLMs will be especially formative.",
+                "summary": "Personal update: I've joined Anthropic. I think the next few years at the frontier of LLMs will be especially formative. I am very excited to join the team here and get back to R&amp;D. I remain deeply passionate about education and plan to resume my work on it in time.",
+                "url": "https://x.com/karpathy/status/2056753169888334312",
+                "source": "@karpathy",
+                "date": "Tue May 19 15:05:42 +0000 2026",
+                "metrics": {
+                  "favorites": 149515,
+                  "retweets": 11162,
+                  "views": "27353159"
+                }
+              },
+              {
+                "title": "This works really well btw, at the end of your query ask your LLM to \"structure your response as HTML\", then view the ge",
+                "summary": "This works really well btw, at the end of your query ask your LLM to \"structure your response as HTML\", then view the generated file in your browser. I've also had some success asking the LLM to present its output as slideshows, etc.\n\nMore generally, imo audio is the human-preferred input to AIs but vision (images/animations/video) is the preferred output from them. Around a ~third of our brains are a massively parallel processor dedicated to vision, it is the 10-lane superhighway of information into brain. As AI improves, I think we'll see a progression that takes advantage:\n\n1) raw text (hard/effortful to read)\n2) markdown (bold, italic, headings, tables, a bit easier on the eyes) <-- current default\n3) HTML (still procedural with underlying code, but a lot more flexibility on the graphics, layout, even interactivity) <-- early but forming new good default\n...4,5,6,...\nn) interactive neural videos/simulations\n\nImo the extrapolation (though the technology doesn't exist just yet) ends in some kind of interactive videos generated directly by a diffusion neural net. Many open questions as to how exact/procedural \"Software 1.0\" artifacts (e.g. interactive simulations) may be woven together with neural artifacts (diffusion grids), but generally something in the direction of the recently viral https://t.co/z21CP5iQfu\n\nThere are also improvements necessary and pending at the input. Audio nor text nor video alone are not enough, e.g. I feel a need to point/gesture to things on the screen, similar to all the things you would do with a person physically next to you and your computer screen.\n\nTLDR The input/output mind meld between humans and AIs is ongoing and there is a lot of work to do and significant progress to be made, way before jumping all the way into neuralink-esque BCIs and all that. For what's worth exploring at the current stage, hot tip try ask for HTML.",
+                "url": "https://x.com/karpathy/status/2053872850101285137",
+                "source": "@karpathy",
+                "date": "Mon May 11 16:20:21 +0000 2026",
+                "metrics": {
+                  "favorites": 19141,
+                  "retweets": 2015,
+                  "views": "3752145"
+                }
+              },
+              {
+                "title": "This is the the quote I've been citing a lot recently.",
+                "summary": "This is the the quote I've been citing a lot recently.",
+                "url": "https://x.com/karpathy/status/2049907410303865030",
+                "source": "@karpathy",
+                "date": "Thu Apr 30 17:43:06 +0000 2026",
+                "metrics": {
+                  "favorites": 46518,
+                  "retweets": 4366,
+                  "views": "2553952"
+                }
+              },
+              {
+                "title": "Fireside chat at Sequoia Ascent 2026 from a ~week ago. Some highlights:",
+                "summary": "Fireside chat at Sequoia Ascent 2026 from a ~week ago. Some highlights:\n\nThe first theme I tried to push on is that LLMs are about a lot more than just speeding up what existed before (e.g. coding). Three examples of new horizons:\n\n1. menugen: an app that can be fully engulfed by LLMs, with no classical code needed: input an image, output an image and an LLM can natively do the thing.\n2. install .md skills instead of install .sh scripts. Why create a complex Software 1.0 bash script for e.g. installing a piece of software if you can write the installation out in words and say \"just show this to your LLM\".  The LLM is an advanced interpreter of English and can intelligently target installation to your setup, debug everything inline, etc.\n3. LLM knowledge bases as an example of something that was *impossible* with classical code because it's computation over unstructured data (knowledge) from arbitrary sources and in arbitrary formats, including simply text articles etc.\n\nI pushed on these because in every new paradigm change, the obvious things are always in the realm of speeding up or somehow improving what existed, but here we have examples of functionality that either suddenly perhaps shouldn't even exist (1,2), or was fundamentally not possible before (3).\n\nThe second (ongoing) theme is trying to explain the pattern of jaggedness in LLMs. How it can be true that a single artifact will simultaneously 1) coherently refactor a 100,000-line code base *and* 2) tell you to walk to the car wash to wash your car. I previously wrote about the source of this as having to do with verifiability of a domain, here I expand on this as having to also do with economics because revenue/TAM dictates what the frontier labs choose to package into training data distributions during RL. You're either in the data distribution (on the rails of the RL circuits) and flying or you're off-roading in the jungle with a machete, in relative terms. Still not 100% satisfied with this, but it's an ongoing struggle to build an accurate model of LLM capabilities if you wish to practically take advantage of their power while avoiding their pitfalls, which brings me to...\n\nLast theme is the agent-native economy. The decomposition of products and services into sensors, actuators and logic (split up across all of 1.0/2.0/3.0 computing paradigms), how we can make information maximally legible to LLMs, some words on the quickly emerging agentic engineering and its skill set, related hiring practices, etc., possibly even hints/dreams of fully neural computing handling the vast majority of computation with some help from (classical) CPU coprocessors.",
+                "url": "https://x.com/karpathy/status/2049903821095354523",
+                "source": "@karpathy",
+                "date": "Thu Apr 30 17:28:50 +0000 2026",
+                "metrics": {
+                  "favorites": 6044,
+                  "retweets": 794,
+                  "views": "1164962"
+                }
+              },
+              {
+                "title": "RT @status_effects: New work with @AlecRad and @DavidDuvenaud:",
+                "summary": "RT @status_effects: New work with @AlecRad and @DavidDuvenaud:\n\nHave you ever dreamed of talking to someone from the past? Introducing talk…",
+                "url": "https://x.com/karpathy/status/2049180863036813717",
+                "source": "@karpathy",
+                "date": "Tue Apr 28 17:36:04 +0000 2026",
+                "metrics": {
+                  "favorites": 0,
+                  "retweets": 391,
+                  "views": "84"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "tool": "format",
+          "args": {
+            "items": [
+              {
+                "summary": "Andrej Karpathy thông báo đã gia nhập Anthropic, bày tỏ sự hào hứng khi quay lại với công việc R&D tại lĩnh vực LLM.",
+                "title": "Personal update: I've joined Anthropic. I think the next few years at the frontier of LLMs will be especially formative.",
+                "source": "@karpathy",
+                "url": "https://x.com/karpathy/status/2056753169888334312",
+                "section": "Andrej Karpathy's Tweets"
+              },
+              {
+                "summary": "Karpathy chia sẻ mẹo yêu cầu LLM xuất kết quả dưới dạng HTML để có trải nghiệm tốt hơn, đồng thời thảo luận về tương lai của giao diện người-AI (từ văn bản đến video tương tác).",
+                "title": "This works really well btw, at the end of your query ask your LLM to \"structure your response as HTML\", then view the ge",
+                "section": "Andrej Karpathy's Tweets",
+                "url": "https://x.com/karpathy/status/2053872850101285137",
+                "source": "@karpathy"
+              },
+              {
+                "summary": "Chia sẻ một trích dẫn mà ông thường xuyên sử dụng gần đây.",
+                "section": "Andrej Karpathy's Tweets",
+                "source": "@karpathy",
+                "url": "https://x.com/karpathy/status/2049907410303865030",
+                "title": "This is the the quote I've been citing a lot recently."
+              },
+              {
+                "title": "Fireside chat at Sequoia Ascent 2026 from a ~week ago. Some highlights:",
+                "url": "https://x.com/karpathy/status/2049903821095354523",
+                "source": "@karpathy",
+                "section": "Andrej Karpathy's Tweets",
+                "summary": "Tóm tắt buổi trò chuyện tại Sequoia Ascent 2026, thảo luận về các chân trời mới của LLM (ngoài việc lập trình), sự 'lồi lõm' trong khả năng của LLM và nền kinh tế đại lý (agent-native economy)."
+              },
+              {
+                "summary": "Retweet về dự án mới cùng Alec Radford và David Duvenaud liên quan đến việc trò chuyện với những người từ quá khứ.",
+                "url": "https://x.com/karpathy/status/2049180863036813717",
+                "source": "@karpathy",
+                "section": "Andrej Karpathy's Tweets",
+                "title": "RT @status_effects: New work with @AlecRad and @DavidDuvenaud:"
+              }
+            ],
+            "template": "bullets"
+          },
+          "result": {
+            "tool": "render_digest",
+            "template": "bullets",
+            "markdown": "- Andrej Karpathy thông báo đã gia nhập Anthropic, bày tỏ sự hào hứng khi quay lại với công việc R&D tại lĩnh vực LLM. - [@karpathy](https://x.com/karpathy/status/2056753169888334312)\n- Karpathy chia sẻ mẹo yêu cầu LLM xuất kết quả dưới dạng HTML để có trải nghiệm tốt hơn, đồng thời thảo luận về tương lai của giao diện người-AI (từ văn bản đến video tương tác). - [@karpathy](https://x.com/karpathy/status/2053872850101285137)\n- Chia sẻ một trích dẫn mà ông thường xuyên sử dụng gần đây. - [@karpathy](https://x.com/karpathy/status/2049907410303865030)\n- Tóm tắt buổi trò chuyện tại Sequoia Ascent 2026, thảo luận về các chân trời mới của LLM (ngoài việc lập trình), sự 'lồi lõm' trong khả năng của LLM và nền kinh tế đại lý (agent-native economy). - [@karpathy](https://x.com/karpathy/status/2049903821095354523)\n- Retweet về dự án mới cùng Alec Radford và David Duvenaud liên quan đến việc trò chuyện với những người từ quá khứ. - [@karpathy](https://x.com/karpathy/status/2049180863036813717)",
+            "item_count": 5
+          }
+        }
+      ],
+      "status": "answered"
+    }
+  ],
+  "updated_at": "2026-06-02T15:37:16"
+}
