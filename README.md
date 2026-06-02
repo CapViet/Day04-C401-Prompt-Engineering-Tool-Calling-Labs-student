@@ -253,9 +253,12 @@ Try at least 3 live turns, for example:
 2. Cài `cloudflared`:
 
    ```bash
-   brew install cloudflared          # macOS
-   # Linux/Windows: xem https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/
+   brew install cloudflared                          # macOS
+   winget install --id Cloudflare.cloudflared        # Windows (hoặc: scoop install cloudflared)
+   # Linux: xem https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/
    ```
+
+   Windows: nếu báo `cloudflared not recognized`, mở terminal mới rồi chạy lại.
 
 3. Mở tunnel trỏ vào cổng UI — lệnh trả về ngay một URL `https://<random>.trycloudflare.com`:
 
