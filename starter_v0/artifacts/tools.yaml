@@ -9,7 +9,7 @@
 tools:
   # ---------------- Core tools ----------------
   - name: clarify
-    description: "Gửi một câu hỏi cho người dùng."
+    description: "Hỏi lại user khi thiếu thông tin bắt buộc (handle Twitter, URL) hoặc cần xác nhận trước khi thực hiện hành động ghi/gửi. KHÔNG đoán khi thiếu thông tin."
     parameters:
       type: object
       properties:
@@ -19,7 +19,7 @@ tools:
       required: [question]
 
   - name: timeline
-    description: "Lấy các bài đăng gần đây."
+    description: "Lấy tweet/post gần đây của MỘT tài khoản Twitter/X cụ thể qua screenname. Dùng khi user hỏi tweet của một người cụ thể (vd: 'tweet của Elon Musk'). KHÔNG dùng cho tìm kiếm theo chủ đề."
     parameters:
       type: object
       properties:
@@ -28,7 +28,7 @@ tools:
       required: [screenname]
 
   - name: social_search
-    description: "Tìm trên mạng xã hội."
+    description: "Tìm tweet/post theo CHỦ ĐỀ hoặc từ khóa trên Twitter/X. Dùng khi user hỏi 'mọi người đang nói gì về X' — không phải tweet của một người cụ thể. search_type=Top cho 'phổ biến/top', Latest cho mặc định."
     parameters:
       type: object
       properties:
@@ -38,7 +38,7 @@ tools:
       required: [query]
 
   - name: lookup
-    description: "Tra cứu thông tin trên internet."
+    description: "Tìm kiếm thông tin trên web. Dùng topic=news cho tin tức/thời sự, topic=general cho thông tin chung. Dùng timeframe=day cho 'hôm nay', week cho 'tuần này', month/year tương tự."
     parameters:
       type: object
       properties:
@@ -59,7 +59,7 @@ tools:
       required: [url]
 
   - name: fetch
-    description: "Lấy nội dung từ một địa chỉ."
+    description: "Đọc nội dung của MỘT URL cụ thể đã được user cung cấp. KHÔNG đoán URL. Nếu chưa có URL, dùng clarify để hỏi."
     parameters:
       type: object
       properties:
@@ -89,7 +89,7 @@ tools:
 
   # ---------------- Bonus tools ----------------
   - name: send
-    description: "Gửi một đoạn văn bản đi."
+    description: "Gửi text lên Telegram. LUÔN gọi clarify(response_type=yes_no) để xác nhận trước khi gọi tool này. Không bao giờ tự gửi mà không có xác nhận."
     parameters:
       type: object
       properties:
