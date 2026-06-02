@@ -3,5 +3,106 @@
   "dataset_role": "group",
   "description": "Case do NHÓM tự viết thêm để cover thêm trường hợp. Mỗi case cần: id, phase='B', query HOẶC turns, failure_type (thuộc allowed_failure_types), và expect (tool_calls[...] hoặc no_tool=true). Nên kèm metadata.what_it_tests.",
   "allowed_failure_types": ["wrong_tool", "wrong_arg_value", "wrong_boundary", "unnecessary_tool", "out_of_scope", "missing_info"],
-  "cases": []
+  "cases": [
+    {
+      "id": "G_S01_crawl_routing",
+      "phase": "B", "suite": "group",
+      "query": "Đọc toàn bộ blog của Anthropic tại https://anthropic.com/blog giúp mình",
+      "failure_type": "wrong_tool",
+      "expect": {"tool_calls": [{"name": "crawl", "args": {"url": "https://anthropic.com/blog"}}]},
+      "metadata": {"skill": "routing_crawl_multipage", "difficulty": "medium", "what_it_tests": "Khi user muốn đọc toàn bộ một section/blog (nhiều trang) → dùng crawl, không phải fetch đọc đơn trang."}
+    },
+    {
+      "id": "G_S02_timeframe_month",
+      "phase": "B", "suite": "group",
+      "query": "Tin tức AI trong tháng này có gì nổi bật?",
+      "failure_type": "wrong_arg_value",
+      "expect": {"tool_calls": [{"name": "lookup", "args": {"topic": "news", "timeframe": "month"}}]},
+      "metadata": {"skill": "arg_timeframe_month", "difficulty": "medium", "what_it_tests": "'tháng này' → timeframe=month, topic=news vì hỏi tin tức."}
+    },
+    {
+      "id": "G_S03_papers_routing",
+      "phase": "B", "suite": "group",
+      "query": "Tìm paper nghiên cứu về large language models",
+      "failure_type": "wrong_tool",
+      "expect": {"tool_calls": [{"name": "papers", "args": {"query": "large language models"}}]},
+      "metadata": {"skill": "routing_papers", "difficulty": "medium", "what_it_tests": "Yêu cầu tìm paper/nghiên cứu khoa học → papers, không phải lookup hay social_search."}
+    },
+    {
+      "id": "G_S04_out_of_scope_translation",
+      "phase": "B", "suite": "group",
+      "query": "Dịch câu này sang tiếng Anh: trí tuệ nhân tạo",
+      "failure_type": "out_of_scope",
+      "expect": {"no_tool": true, "behavior": "refuse"},
+      "metadata": {"skill": "out_of_scope_translation", "difficulty": "easy", "what_it_tests": "Yêu cầu dịch thuật ngoài phạm vi research → KHÔNG gọi tool, từ chối lịch sự."}
+    },
+    {
+      "id": "G_S05_social_search_top_limit",
+      "phase": "B", "suite": "group",
+      "query": "Tìm 10 tweet phổ biến nhất về ChatGPT",
+      "failure_type": "wrong_arg_value",
+      "expect": {"tool_calls": [{"name": "social_search", "args": {"query": "ChatGPT", "search_type": "Top", "limit": 10}}]},
+      "metadata": {"skill": "arg_search_type_top_and_limit", "difficulty": "medium", "what_it_tests": "'phổ biến nhất' → search_type=Top; '10' → limit=10."}
+    },
+    {
+      "id": "G_M01_clarify_then_crawl",
+      "phase": "B", "suite": "group",
+      "turns": [
+        {"role": "user", "content": "Đọc toàn bộ website của họ giúp mình"},
+        {"role": "user", "content": "https://openai.com/research"},
+        {"role": "user", "content": "Đúng rồi, đọc hết trang đó đi"}
+      ],
+      "failure_type": "missing_info",
+      "expect": {"tool_calls": [{"name": "crawl", "args": {"url": "https://openai.com/research"}}]},
+      "metadata": {"skill": "multiturn_clarify_crawl", "difficulty": "medium", "what_it_tests": "3 turns: thiếu URL → clarify; sau khi có URL và xác nhận → crawl đúng url."}
+    },
+    {
+      "id": "G_M02_carryover_query_change_search_type",
+      "phase": "B", "suite": "group",
+      "turns": [
+        {"role": "user", "content": "Tìm tweet mới nhất về AI"},
+        {"role": "user", "content": "Chuyển sang top tweet thôi"},
+        {"role": "user", "content": "Giữ nguyên chủ đề AI nhé"}
+      ],
+      "failure_type": "wrong_arg_value",
+      "expect": {"tool_calls": [{"name": "social_search", "args": {"query": "AI", "search_type": "Top"}}]},
+      "metadata": {"skill": "multiturn_change_search_type", "difficulty": "hard", "what_it_tests": "3 turns: carry query=AI từ lượt 1, đổi search_type Latest→Top ở lượt 2, lượt 3 xác nhận giữ chủ đề."}
+    },
+    {
+      "id": "G_M03_correction_screenname",
+      "phase": "B", "suite": "group",
+      "turns": [
+        {"role": "user", "content": "Tweet mới nhất của Sam Altman"},
+        {"role": "user", "content": "Nhầm, của Yann LeCun"},
+        {"role": "user", "content": "Lấy 5 tweet mới nhất"}
+      ],
+      "failure_type": "wrong_arg_value",
+      "expect": {"tool_calls": [{"name": "timeline", "args": {"screenname": "ylecun", "limit": 5}}]},
+      "metadata": {"skill": "multiturn_correction_screenname", "difficulty": "hard", "what_it_tests": "3 turns: sửa Sam Altman→Yann LeCun, map tên thành handle ylecun, carry limit=5."}
+    },
+    {
+      "id": "G_M04_switch_timeline_to_lookup",
+      "phase": "B", "suite": "group",
+      "turns": [
+        {"role": "user", "content": "Tweet của Elon Musk về AI"},
+        {"role": "user", "content": "Thôi bỏ Twitter, tìm tin tức trên web đi"},
+        {"role": "user", "content": "Vẫn về AI, tin trong tuần này"}
+      ],
+      "failure_type": "wrong_tool",
+      "expect": {"tool_calls": [{"name": "lookup", "args": {"query": "AI", "topic": "news", "timeframe": "week"}}]},
+      "metadata": {"skill": "multiturn_switch_timeline_to_lookup", "difficulty": "hard", "what_it_tests": "3 turns: bỏ Twitter/timeline, chuyển sang lookup news, carry chủ đề AI và timeframe=week từ 'tuần này'."}
+    },
+    {
+      "id": "G_M05_clarify_then_papers",
+      "phase": "B", "suite": "group",
+      "turns": [
+        {"role": "user", "content": "Tìm paper nghiên cứu này giúp mình"},
+        {"role": "user", "content": "Về reinforcement learning from human feedback"},
+        {"role": "user", "content": "Chỉ lấy 3 paper mới nhất thôi"}
+      ],
+      "failure_type": "missing_info",
+      "expect": {"tool_calls": [{"name": "papers", "args": {"query": "reinforcement learning from human feedback", "max_results": 3, "sort_by": "submittedDate"}}]},
+      "metadata": {"skill": "multiturn_clarify_papers", "difficulty": "hard", "what_it_tests": "3 turns: thiếu topic → clarify; sau khi có topic, carry max_results=3 và sort_by=submittedDate từ 'mới nhất'."}
+    }
+  ]
 }
